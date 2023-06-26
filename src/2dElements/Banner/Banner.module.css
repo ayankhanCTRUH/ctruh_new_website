@@ -1,0 +1,94 @@
+.bannerContainer {
+  width: 100vw;
+  height: 100vh;
+}
+.bannerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3% 7%;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 1in;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+  padding: 10px 25px;
+}
+.headerLeft {
+  font-size: 27px;
+  font-weight: 500;
+}
+.headerRight {
+  font-size: 20px;
+  font-weight: 500;
+}
+.headerMiddle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 4%;
+  font-size: 20px;
+  font-weight: 400;
+}
+.headerContent {
+  padding: 10px 10px;
+  border: 2px solid transparent;
+  border-radius: 1in;
+  cursor: pointer;
+}
+.headerContent:hover {
+  border: 2px solid #030303;
+}
+.mainBanner {
+  margin: 3% 7%;
+  height: 70%;
+  color: white;
+  display: flex;
+}
+.bannerLeft {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+.bannerLeft h1 {
+  font-size: 90px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+.bannerLeft p {
+  padding: 20px 0;
+  letter-spacing: 1px;
+  font-size: 19px;
+  line-height: 30px;
+}
+.bannerButton {
+  display: flex;
+  gap: 5%;
+}
+.bannerButton button {
+  font-size: 20px;
+  padding: 15px 30px;
+  background-color: #030303;
+  border: none;
+  border-radius: 1in;
+  color: #fff;
+  cursor: pointer;
+}
+.bannerButton button:last-child {
+  font-size: 19px;
+  padding: 15px 25px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 1in;
+  color: #fff;
+}
+.bannerRight {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
