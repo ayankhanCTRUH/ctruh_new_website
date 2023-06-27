@@ -1,15 +1,12 @@
 import { Suspense } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
-import {
-  Environment,
-  OrbitControls,
-  useGLTF,
-  useScroll,
-} from "@react-three/drei";
+import { Environment, useGLTF, useScroll } from "@react-three/drei";
 import { useRef } from "react";
 import { useLayoutEffect } from "react";
 import gsap from "gsap";
+import { useControls } from "leva";
+import { OrbitControls } from "@react-three/drei";
 const vShader = `
 varying vec2 vUv; 
 varying vec3 vNormal;
@@ -184,7 +181,26 @@ void main() {
 
 function Experience() {
   const { viewport } = useThree();
-  const { nodes } = useGLTF("./star2.glb");
+  // const object1 = useGLTF("./cloud.glb");
+  // const obejct2 = useGLTF("./bulb.glb");
+  // const object3 = useGLTF("./outline.glb");
+
+  // console.log(object1);
+  const { gradient } = useControls({
+    gradient: {
+      options: [
+        "./360_F_241653010_BaWrXUvkBOmG2NUBICVt8pWV4nfSNXUP.jpg",
+        "./pexels-codioful-(formerly-gradienta)-7130498.jpg",
+        "./abstract-metallic-gradient-background_23-2149532906 (1).avif",
+        "./neon-background-foil-with-purple-blue-light-generative-ai_733139-3576.avif",
+        "./pngtree-holographic-gradient-color-laser-effect-background-picture-image_1450718.jpg",
+        "./pngtree-blue-liquid-holographic-background-picture-image_1256436.jpg",
+        "./1666013-QnwDR3O4MF-high_0000.avif",
+        "./magicpattern-mesh-gradient-1635765150762-preview.jpg",
+        "./istockphoto-1349343032-612x612.jpg",
+      ],
+    },
+  });
   const material = new THREE.ShaderMaterial({
     extensions: {
       derivatives: "#extension GL_OES_standard_derivatives : enable",
@@ -195,7 +211,7 @@ function Experience() {
       time: { type: "f", value: 0 },
       sky: {
         type: "t",
-        value: new THREE.TextureLoader().load("./heroBg.jpg"),
+        value: new THREE.TextureLoader().load(gradient),
       },
       uvRate1: {
         value: new THREE.Vector2(1, 2),
@@ -281,7 +297,7 @@ function Experience() {
   }, []);
 
   // const boxGeometry = new THREE.SphereGeometry(1, 32, 32);
-  let boxGeometry = new THREE.TorusGeometry(0.6, 0.2, 26, 100).toNonIndexed();
+  let boxGeometry = new THREE.TorusGeometry(0.6, 0.2, 26, 100);
   const boxMaterial = new THREE.MeshStandardMaterial({
     transparent: true,
     opacity: 1,
@@ -304,7 +320,15 @@ function Experience() {
         />
       </mesh>
       {/* <OrbitControls /> */}
-
+      {/* <group>
+        <primitive object={object1.scene} />
+      </group>
+      <group>
+        <primitive object={obejct2.scene} />
+      </group>
+      <group>
+        <primitive object={object3.scene} />
+      </group> */}
       <mesh ref={torusRef} position={[3.4, -0.7, 1]} material={boxMaterial}>
         <cylinderGeometry args={[0.5, 0.5, 1, 30]} />
       </mesh>
@@ -315,7 +339,9 @@ function Experience() {
       <mesh ref={coneRef} position={[0.9, -1, 2]} material={boxMaterial}>
         <coneGeometry args={[0.4, 1, 30]} />
       </mesh>
-      <Environment files={"./heroBg.hdr"} />
+      <Environment
+        files={"./pexels-codioful-_formerly-gradienta_-7130498.hdr"}
+      />
     </>
   );
 }

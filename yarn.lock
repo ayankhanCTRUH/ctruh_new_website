@@ -1855,7 +1855,7 @@ ktx-parse@^0.4.5:
 
 leva@^0.9.35:
   version "0.9.35"
-  resolved "https://registry.npmjs.org/leva/-/leva-0.9.35.tgz"
+  resolved "https://registry.yarnpkg.com/leva/-/leva-0.9.35.tgz#0d44c0954ba28434b50636906e389c61dd2cbfd9"
   integrity sha512-sp/ZbHGrrzM+eq+wIAc9X7C5qFagNERYkwaulKI/xy0XrDPV67jLUSSqTCFSoSc0Uk96j3oephYoO/6I8mZNuw==
   dependencies:
     "@radix-ui/react-portal" "^1.0.2"
