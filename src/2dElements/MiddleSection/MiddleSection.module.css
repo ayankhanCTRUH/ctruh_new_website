@@ -1,0 +1,7 @@
+.middleContainer {
+  background-color: #fff;
+  position: absolute;
+  width: 100vw;
+  z-index: -1;
+  height: 50vh;
+}

@@ -181,11 +181,11 @@ void main() {
 
 function Experience() {
   const { viewport } = useThree();
-  // const object1 = useGLTF("./cloud.glb");
-  // const obejct2 = useGLTF("./bulb.glb");
-  // const object3 = useGLTF("./outline.glb");
+  const object1 = useGLTF("./cloud.glb");
+  const object2 = useGLTF("./bulb.glb");
+  const object3 = useGLTF("./outline.glb");
 
-  // console.log(object1);
+  console.log(object2.nodes);
   const { gradient } = useControls({
     gradient: {
       options: [
@@ -229,10 +229,10 @@ function Experience() {
 
   useFrame((state, delta) => {
     material.uniforms.time.value += delta * 3;
-    boxRef.current.rotation.y += delta * 0.1;
-    boxRef.current.rotation.x += delta * 0.3;
-    torusRef.current.rotation.y += delta * 0.5;
-    torusRef.current.rotation.x += delta * 0.2;
+    boxRef.current.rotation.y += delta * 0.5;
+    // boxRef.current.rotation.x += delta * 0.3;
+    torusRef.current.rotation.y += delta * 0.1;
+    // torusRef.current.rotation.x += delta * 0.2;
     coneRef.current.rotation.y += delta * 0.7;
     coneRef.current.rotation.x += delta * 0.1;
     tl.current.seek(scroll.offset * tl.current.duration());
@@ -320,26 +320,60 @@ function Experience() {
           args={[viewport.width, viewport.height]}
         />
       </mesh>
+      <group ref={torusRef} position={[3.2, -1.9, 1]} scale={0.7}>
+        <mesh
+          geometry={object1.nodes.Mball003.geometry}
+          position={object1.nodes.Mball003.position}
+          rotation={object1.nodes.Mball003.rotation}
+          scale={object1.nodes.Mball003.scale}
+          material={boxMaterial}
+        />
+        <mesh
+          geometry={object1.nodes.Plane.geometry}
+          position={object1.nodes.Plane.position}
+          rotation={object1.nodes.Plane.rotation}
+          scale={object1.nodes.Plane.scale}
+          material={boxMaterial}
+        />
+      </group>
+      <group ref={boxRef} position={[1.5, 0.4, 2]} scale={0.6}>
+        {Object.keys(object2.nodes).map((data) => (
+          <mesh
+            geometry={object2.nodes[data].geometry}
+            position={object2.nodes[data].position}
+            rotation={object2.nodes[data].rotation}
+            scale={object2.nodes[data].scale}
+            material={boxMaterial}
+          />
+        ))}
+      </group>
+      <group ref={coneRef} position={[0.9, -1, 2]} scale={0.4}>
+        {Object.keys(object3.nodes).map((data) => (
+          <mesh
+            geometry={object3.nodes[data].geometry}
+            position={object3.nodes[data].position}
+            rotation={object3.nodes[data].rotation}
+            scale={object3.nodes[data].scale}
+            material={boxMaterial}
+          />
+        ))}
+      </group>
       {/* <OrbitControls /> */}
-      {/* <group>
-        <primitive object={object1.scene} />
-      </group>
-      <group>
-        <primitive object={obejct2.scene} />
-      </group>
+      {/*
+    
       <group>
         <primitive object={object3.scene} />
       </group> */}
-      <mesh ref={torusRef} position={[3.4, -0.7, 1]} material={boxMaterial}>
+      {/* <mesh material={boxMaterial}>
         <cylinderGeometry args={[0.5, 0.5, 1, 30]} />
-      </mesh>
+      </mesh> */}
 
-      <mesh ref={boxRef} position={[1.5, 0.4, 2]} material={boxMaterial}>
+      {/* <mesh ref={boxRef} position={[1.5, 0.4, 2]} material={boxMaterial}>
         <boxGeometry args={[0.5, 0.5]} />
-      </mesh>
-      <mesh ref={coneRef} position={[0.9, -1, 2]} material={boxMaterial}>
+      </mesh> */}
+      {/* <mesh ref={coneRef} position={[0.9, -1, 2]} material={boxMaterial}>
         <coneGeometry args={[0.4, 1, 30]} />
-      </mesh>
+      </mesh> */}
       <Environment
         files={"./pexels-codioful-_formerly-gradienta_-7130498.hdr"}
       />
