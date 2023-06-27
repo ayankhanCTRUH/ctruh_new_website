@@ -189,6 +189,7 @@ function Experience() {
   const { gradient } = useControls({
     gradient: {
       options: [
+        "./heroBg.jpg",
         "./360_F_241653010_BaWrXUvkBOmG2NUBICVt8pWV4nfSNXUP.jpg",
         "./pexels-codioful-(formerly-gradienta)-7130498.jpg",
         "./abstract-metallic-gradient-background_23-2149532906 (1).avif",
