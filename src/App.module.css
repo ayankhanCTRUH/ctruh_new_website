@@ -10,4 +10,8 @@ body {
   width: 100vw !important;
   height: 100vh !important;
   position: absolute !important;
+  pointer-events: none !important;
+}
+.mainHeadingCanvas {
+  color: #fff;
 }

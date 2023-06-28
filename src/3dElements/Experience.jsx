@@ -1,12 +1,19 @@
 import { Suspense } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
-import { Environment, useGLTF, useScroll } from "@react-three/drei";
+import {
+  Center,
+  Environment,
+  Html,
+  useGLTF,
+  useScroll,
+} from "@react-three/drei";
 import { useRef } from "react";
 import { useLayoutEffect } from "react";
 import gsap from "gsap";
 import { useControls } from "leva";
 import { OrbitControls } from "@react-three/drei";
+import { Stage } from "@react-three/drei";
 const vShader = `
 varying vec2 vUv; 
 varying vec3 vNormal;
@@ -185,6 +192,8 @@ function Experience() {
   const object2 = useGLTF("./bulb.glb");
   const object3 = useGLTF("./outline.glb");
 
+  const fullGlb = useGLTF("./0 (10).glb");
+
   console.log(object2.nodes);
   const { gradient } = useControls({
     gradient: {
@@ -227,75 +236,75 @@ function Experience() {
   const tl = useRef();
   const scroll = useScroll();
 
-  useFrame((state, delta) => {
-    material.uniforms.time.value += delta * 3;
-    boxRef.current.rotation.y += delta * 0.5;
-    // boxRef.current.rotation.x += delta * 0.3;
-    torusRef.current.rotation.y += delta * 0.1;
-    // torusRef.current.rotation.x += delta * 0.2;
-    coneRef.current.rotation.y += delta * 0.7;
-    coneRef.current.rotation.x += delta * 0.1;
-    tl.current.seek(scroll.offset * tl.current.duration());
-  });
+  // useFrame((state, delta) => {
+  //   material.uniforms.time.value += delta * 3;
+  //   boxRef.current.rotation.y += delta * 0.5;
+  //   // boxRef.current.rotation.x += delta * 0.3;
+  //   torusRef.current.rotation.y += delta * 0.1;
+  //   // torusRef.current.rotation.x += delta * 0.2;
+  //   coneRef.current.rotation.y += delta * 0.7;
+  //   coneRef.current.rotation.x += delta * 0.1;
+  //   tl.current.seek(scroll.offset * tl.current.duration());
+  // });
 
-  useLayoutEffect(() => {
-    tl.current = gsap.timeline();
+  // useLayoutEffect(() => {
+  //   tl.current = gsap.timeline();
 
-    tl.current.to(
-      torusRef.current.position,
-      {
-        duration: 1,
-        y: 0,
-        x: -2,
-      },
-      0
-    );
-    tl.current.to(
-      torusRef.current.position,
-      {
-        duration: 3,
-        y: -1,
-        x: 2,
-      },
-      1
-    );
-    tl.current.to(
-      boxRef.current.position,
-      {
-        duration: 1,
-        x: 1,
-        y: -2,
-      },
-      0
-    );
-    tl.current.to(
-      boxRef.current.position,
-      {
-        duration: 3,
-        x: 2,
-        y: 1,
-      },
-      1
-    );
-    tl.current.to(
-      coneRef.current.position,
-      {
-        duration: 1,
-        x: -1,
-        y: -2,
-      },
-      0
-    );
-    tl.current.to(
-      coneRef.current.position,
-      {
-        duration: 3,
-        x: 1,
-        y: 1,
-      },
-      1
-    );
-  }, []);
+  //   tl.current.to(
+  //     torusRef.current.position,
+  //     {
+  //       duration: 1,
+  //       y: 0,
+  //       x: -2,
+  //     },
+  //     0
+  //   );
+  //   tl.current.to(
+  //     torusRef.current.position,
+  //     {
+  //       duration: 3,
+  //       y: -1,
+  //       x: 2,
+  //     },
+  //     1
+  //   );
+  //   tl.current.to(
+  //     boxRef.current.position,
+  //     {
+  //       duration: 1,
+  //       x: 1,
+  //       y: -2,
+  //     },
+  //     0
+  //   );
+  //   tl.current.to(
+  //     boxRef.current.position,
+  //     {
+  //       duration: 3,
+  //       x: 2,
+  //       y: 1,
+  //     },
+  //     1
+  //   );
+  //   tl.current.to(
+  //     coneRef.current.position,
+  //     {
+  //       duration: 1,
+  //       x: -1,
+  //       y: -2,
+  //     },
+  //     0
+  //   );
+  //   tl.current.to(
+  //     coneRef.current.position,
+  //     {
+  //       duration: 3,
+  //       x: 1,
+  //       y: 1,
+  //     },
+  //     1
+  //   );
+  // }, []);
 
   // const boxGeometry = new THREE.SphereGeometry(1, 32, 32);
   let boxGeometry = new THREE.TorusGeometry(0.6, 0.2, 26, 100);
@@ -312,15 +321,38 @@ function Experience() {
     polygonOffsetFactor: 1,
     envMapIntensity: 2,
   });
+
   return (
     <>
-      <mesh material={material}>
+      {/* <ambientLight intensity={0.7} />
+      <spotLight position={[10, 10, 10]} angle={0.5} penumbra={1} />
+      <pointLight position={[-10, -10, -10]} /> */}
+      {/* <mesh material={material}>
         <planeBufferGeometry
           attach="geometry"
           args={[viewport.width, viewport.height]}
         />
-      </mesh>
-      <group ref={torusRef} position={[3.2, -1.9, 1]} scale={0.7}>
+      </mesh> */}
+      <Stage
+        intensity={1.5}
+        environment="city"
+        // shadows={{ type: "accumulative", color, colorBlend: 2, opacity: 2 }}
+        adjustCamera={0.9}
+      >
+        <group>
+          <primitive
+            object={fullGlb.scene}
+            rotation={[0.4, 1.6, 0]}
+            scale={0.8}
+          />
+        </group>
+      </Stage>
+
+      {/* <Html>
+          <h1>Ctruh Reality</h1>
+        </Html> */}
+
+      {/* <group ref={torusRef} position={[3.2, -1.9, 1]} scale={0.7}>
         <mesh
           geometry={object1.nodes.Mball003.geometry}
           position={object1.nodes.Mball003.position}
@@ -357,7 +389,7 @@ function Experience() {
             material={boxMaterial}
           />
         ))}
-      </group>
+      </group> */}
       {/* <OrbitControls /> */}
       {/*
     
@@ -374,9 +406,9 @@ function Experience() {
       {/* <mesh ref={coneRef} position={[0.9, -1, 2]} material={boxMaterial}>
         <coneGeometry args={[0.4, 1, 30]} />
       </mesh> */}
-      <Environment
+      {/* <Environment
         files={"./pexels-codioful-_formerly-gradienta_-7130498.hdr"}
-      />
+      /> */}
     </>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./Banner.module.css";
+import { useControls } from "leva";
 
 function Banner() {
   return (

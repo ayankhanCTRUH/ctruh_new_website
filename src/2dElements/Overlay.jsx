@@ -5,10 +5,12 @@ import MiddleSection from "./MiddleSection/MiddleSection";
 
 function Overlay() {
   return (
-    <Scroll html>
+    <>
+      {/* <Scroll html> */}
       <Banner />
       {/* <MiddleSection /> */}
-    </Scroll>
+      {/* </Scroll> */}
+    </>
   );
 }
 
