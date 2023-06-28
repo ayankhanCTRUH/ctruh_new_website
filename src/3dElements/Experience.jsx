@@ -335,7 +335,7 @@ function Experience() {
       </mesh> */}
       <Stage
         intensity={1.5}
-        environment="city"
+        environment=""
         // shadows={{ type: "accumulative", color, colorBlend: 2, opacity: 2 }}
         adjustCamera={0.9}
       >
@@ -347,7 +347,7 @@ function Experience() {
           />
         </group>
       </Stage>
-
+      <Environment files={"./heroBg.hdr"} />
       {/* <Html>
           <h1>Ctruh Reality</h1>
         </Html> */}
