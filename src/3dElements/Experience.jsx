@@ -187,30 +187,28 @@ void main() {
 `;
 
 function Experience() {
-  const { viewport } = useThree();
   const object1 = useGLTF("./cloud.glb");
   const object2 = useGLTF("./bulb.glb");
   const object3 = useGLTF("./outline.glb");
 
-  const fullGlb = useGLTF("./0 (10).glb");
+  const fullGlb = useGLTF("./fullGlb.glb");
 
-  console.log(object2.nodes);
-  const { gradient } = useControls({
-    gradient: {
-      options: [
-        "./heroBg.jpg",
-        "./360_F_241653010_BaWrXUvkBOmG2NUBICVt8pWV4nfSNXUP.jpg",
-        "./pexels-codioful-(formerly-gradienta)-7130498.jpg",
-        "./abstract-metallic-gradient-background_23-2149532906 (1).avif",
-        "./neon-background-foil-with-purple-blue-light-generative-ai_733139-3576.avif",
-        "./pngtree-holographic-gradient-color-laser-effect-background-picture-image_1450718.jpg",
-        "./pngtree-blue-liquid-holographic-background-picture-image_1256436.jpg",
-        "./1666013-QnwDR3O4MF-high_0000.avif",
-        "./magicpattern-mesh-gradient-1635765150762-preview.jpg",
-        "./istockphoto-1349343032-612x612.jpg",
-      ],
-    },
-  });
+  // const { gradient } = useControls({
+  //   gradient: {
+  //     options: [
+  //       "./heroBg.jpg",
+  //       "./360_F_241653010_BaWrXUvkBOmG2NUBICVt8pWV4nfSNXUP.jpg",
+  //       "./pexels-codioful-(formerly-gradienta)-7130498.jpg",
+  //       "./abstract-metallic-gradient-background_23-2149532906 (1).avif",
+  //       "./neon-background-foil-with-purple-blue-light-generative-ai_733139-3576.avif",
+  //       "./pngtree-holographic-gradient-color-laser-effect-background-picture-image_1450718.jpg",
+  //       "./pngtree-blue-liquid-holographic-background-picture-image_1256436.jpg",
+  //       "./1666013-QnwDR3O4MF-high_0000.avif",
+  //       "./magicpattern-mesh-gradient-1635765150762-preview.jpg",
+  //       "./istockphoto-1349343032-612x612.jpg",
+  //     ],
+  //   },
+  // });
   const material = new THREE.ShaderMaterial({
     extensions: {
       derivatives: "#extension GL_OES_standard_derivatives : enable",
