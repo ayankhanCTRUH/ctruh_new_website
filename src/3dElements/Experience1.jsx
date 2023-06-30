@@ -37,6 +37,11 @@ function Experience1() {
     "1 (3).glb",
     "0 (23).glb",
     "1 (3).glb",
+
+    "0 (15).glb",
+    "0 (15).glb",
+    "0 (16).glb",
+    "0 (17).glb",
   ]);
   const body = useRef([]);
   //   useEffect(() => {
@@ -80,7 +85,7 @@ function Experience1() {
             onPointerLeave={(e) => jump(body.current[i], false)}
             // onClick={(e) => jump(body.current[i])}
           >
-            <primitive object={data.scene} scale={0.2} />
+            <primitive object={data.scene} scale={0.3} />
           </RigidBody>
         ))}
 
