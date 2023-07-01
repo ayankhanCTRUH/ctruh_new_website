@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { Center, OrbitControls, useGLTF } from "@react-three/drei";
 import { Box, Torus } from "@react-three/drei";
 import { Physics, RigidBody, CuboidCollider } from "@react-three/rapier";
 import { useState } from "react";
@@ -9,63 +9,115 @@ import { useRef, useEffect } from "react";
 
 function Experience1() {
   const [hovered, setHovered] = useState(false);
-  const allGlbs = useGLTF([
-    "0 (15).glb",
-    "0 (15).glb",
-    "0 (16).glb",
-    "0 (17).glb",
-    "0 (18).glb",
-    "0 (19).glb",
-    "0 (20).glb",
-    "0 (21).glb",
-    "0 (22).glb",
-    "0 (15).glb",
-    "0 (15).glb",
-    "0 (16).glb",
-    "0 (17).glb",
-    "0 (18).glb",
-    "0 (19).glb",
-    "0 (20).glb",
-    "0 (21).glb",
-    "0 (22).glb",
-    "0 (23).glb",
-    "1 (3).glb",
-    "0 (23).glb",
-    "1 (3).glb",
-    "0 (22).glb",
-    "0 (23).glb",
-    "1 (3).glb",
-    "0 (23).glb",
-    "1 (3).glb",
+  // const allGlbs = useGLTF([
+  //   // "0 (15).glb",
+  //   // "0 (15).glb",
+  //   // "0 (17).glb",
+  //   // "0 (17).glb",
+  //   // "0 (20).glb",
+  //   // "0 (20).glb",
+  //   // // "0 (21).glb",
+  //   // "0 (22).glb",
+  //   // "0 (22).glb",
+  //   // // "0 (15).glb",
+  //   // // "0 (15).glb",
+  //   // // "0 (16).glb",
+  //   // // "0 (17).glb",
+  //   // // "0 (18).glb",
+  //   // // "0 (19).glb",
+  //   // // "0 (20).glb",
 
-    "0 (15).glb",
-    "0 (15).glb",
-    "0 (16).glb",
-    "0 (17).glb",
-  ]);
+  //   // "0 (22).glb",
+  //   // "0 (23).glb",
+  //   // "0 (23).glb",
+  //   // "1 (3).glb",
+  //   // "1 (3).glb",
+  //   // // "0 (23).glb",
+  //   // // "1 (3).glb",
+  //   // // "0 (22).glb",
+  //   // // "0 (23).glb",
+  //   // // "1 (3).glb",
+  //   // // "0 (23).glb",
+  //   // // "1 (3).glb",
+
+  //   // // "0 (15).glb",
+  //   // // "0 (15).glb",
+  //   // // "0 (16).glb",
+  //   // // "0 (17).glb",
+  // ]);
+  const allMesh = useGLTF("./allMesh.glb");
   const body = useRef([]);
+  console.log(allMesh.scene.children);
   //   useEffect(() => {
   //     console.log(body);
   //   });
   const jump = (jump, hover) => {
     // jump.current.applyImpulse({ x: 0, y: 5, z: 0 });
-
-    hover && jump.applyImpulse({ x: 0, y: 4, z: 0 }, true);
+    console.log(jump);
+    hover && jump.applyImpulse({ x: 0, y: 20, z: 0 }, true);
 
     // // A continuous force
-    // jump.addForce({ x: 0, y: 0, z: 0 }, true);
+    // jump.addForce({ x: 0, y: 3, z: 0 }, true);
 
     // // A one-off torque rotation
     // jump.applyTorqueImpulse({ x: 0, y: 0, z: 0 }, true);
 
     // // A continuous torque
-    // jump.addTorque({ x: 0, y: 0, z: 0 }, true);
+    hover && jump.addTorque({ x: 1, y: 1, z: 1 }, true);
   };
 
   return (
     <>
-      <Physics>
-        {allGlbs.map((data, i) => (
+      <Physics gravity={[0, -9.8, 0]}>
+        <group scale={0.5} position={[4, 8, 10]}>
+          {allMesh.scene.children.map((data, i) =>
+            data.type === "Group" ? (
+              <RigidBody
+                key={i}
+                colliders="hull"
+                position={data.position}
+                rotation={data.rotation}
+                scale={data.scale}
+                restitution={0.1}
+                friction={0.2}
+                ref={(el) => (body.current[i] = el)}
+                castShadow
+                linearDamping={0.4}
+                angularDamping={0.4}
+                onPointerEnter={(e) => jump(body.current[i], true)}
+                onPointerLeave={(e) => jump(body.current[i], false)}
+                // onClick={(e) => jump(body.current[i])}
+              >
+                {data.children.map((groupMesh) => (
+                  <mesh
+                    geometry={groupMesh.geometry}
+                    material={groupMesh.material}
+                  />
+                ))}
+              </RigidBody>
+            ) : (
+              <RigidBody
+                key={i}
+                colliders="hull"
+                position={data.position}
+                scale={data.scale}
+                rotation={data.rotation}
+                restitution={0.2}
+                friction={1}
+                ref={(el) => (body.current[i] = el)}
+                castShadow
+                linearDamping={0.2}
+                angularDamping={0.2}
+                onPointerEnter={(e) => jump(body.current[i], true)}
+                onPointerLeave={(e) => jump(body.current[i], false)}
+                // onClick={(e) => jump(body.current[i])}
+              >
+                <mesh geometry={data.geometry} material={data.material} />
+              </RigidBody>
+            )
+          )}
+        </group>
+        {/* {allGlbs.map((data, i) => (
           <RigidBody
             key={i}
             colliders="hull"
@@ -81,16 +133,20 @@ function Experience1() {
             castShadow
             linearDamping={0.2}
             angularDamping={0.2}
-            onPointerEnter={(e) => jump(body.current[i], true)}
-            onPointerLeave={(e) => jump(body.current[i], false)}
-            // onClick={(e) => jump(body.current[i])}
+            // onPointerEnter={(e) => jump(body.current[i], true)}
+            // onPointerLeave={(e) => jump(body.current[i], false)}
+            onClick={(e) => jump(body.current[i])}
           >
             <primitive object={data.scene} scale={0.3} />
           </RigidBody>
-        ))}
+        ))} */}
 
         {/** Invisible walls */}
-        <CuboidCollider position={[0, -3, 0]} args={[100, 1, 100]} />
+        <CuboidCollider
+          position={[0, -4, 0]}
+          rotation={[-0.13, 0, 0]}
+          args={[100, 1, 100]}
+        />
       </Physics>
       {/** Environment (for reflections) */}
       <Environment
@@ -133,7 +189,7 @@ function Experience1() {
       <ContactShadows
         smooth={false}
         scale={100}
-        position={[0, -2.1, 0]}
+        position={[0, -3, 0]}
         blur={0.5}
         opacity={0.75}
       />
