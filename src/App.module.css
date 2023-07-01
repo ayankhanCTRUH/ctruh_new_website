@@ -9,7 +9,7 @@ body {
 .canvasContainer {
   width: 100vw !important;
   height: 100vh !important;
-  position: absolute !important;
+  background: linear-gradient(#9600ff, #d79ffe);
 }
 .mainHeadingCanvas {
   color: #fff;
