@@ -69,7 +69,7 @@ function Experience1() {
   return (
     <>
       <Physics gravity={[0, -9.8, 0]}>
-        <group scale={0.5} position={[4, 8, 10]}>
+        <group scale={0.5} position={[3, 8, 12]}>
           {allMesh.scene.children.map((data, i) =>
             data.type === "Group" ? (
               <RigidBody
@@ -82,8 +82,8 @@ function Experience1() {
                 friction={0.2}
                 ref={(el) => (body.current[i] = el)}
                 castShadow
-                linearDamping={0.4}
-                angularDamping={0.4}
+                linearDamping={0.5}
+                angularDamping={0.5}
                 onPointerEnter={(e) => jump(body.current[i], true)}
                 onPointerLeave={(e) => jump(body.current[i], false)}
                 // onClick={(e) => jump(body.current[i])}
@@ -187,10 +187,11 @@ function Experience1() {
       </Environment>
       {/** Contact shadows for naive soft shadows */}
       <ContactShadows
-        smooth={false}
-        scale={100}
-        position={[0, -3, 0]}
-        blur={0.5}
+        smooth={true}
+        scale={120}
+        position={[0, -3.1, 0]}
+        blur={0.6}
+        rotation={[-0.13, 0, 0]}
         opacity={0.75}
       />
       {/** Yomotsu/camera-controls, a better replacement for OrbitControls */}

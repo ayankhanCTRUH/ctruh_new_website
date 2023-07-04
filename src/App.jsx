@@ -6,9 +6,11 @@ import { useControls } from "leva";
 import Experience1 from "./3dElements/Experience1";
 import { Suspense } from "react";
 import SectionOne from "./2dElements/SectionOne/SectionOne";
+import SectionTwo from "./2dElements/SectionTwo/SectionTwo";
+import Footer from "./2dElements/Footer/Footer";
 
 function App() {
-  const { color } = useControls({ color: "#9600ff" });
+  // const { color } = useControls({ color: "#9600ff" });
 
   return (
     <div className={style.mainWebsiteContainer}>
@@ -24,7 +26,9 @@ function App() {
           </Html>
         </Suspense>
       </Canvas>
-      {/* <SectionOne /> */}
+      <SectionOne />
+      <SectionTwo />
+      <Footer />
     </div>
   );
 }
