@@ -3,6 +3,50 @@ import { useState, useRef } from "react";
 import { useEffect } from "react";
 
 function SectionTwo() {
+  const cardsData = [
+    {
+      count: 1,
+      title: "3D Modeling",
+      desc: "Work with your team in real-time and set individual permissions.Parametric objects, polygonal editing, and more.",
+      img: "./squigly-line.png",
+    },
+    {
+      count: 2,
+      title: "Animation",
+      desc: "Work with your team in real-time and set individual permissions.Parametric objects, polygonal editing, and more.",
+      img: "./squigly-globe.png",
+    },
+    {
+      count: 3,
+      title: "Interactive Experiences",
+      desc: "Work with your team in real-time and set individual permissions.Parametric objects, polygonal editing, and more.",
+      img: "./diamond.png",
+    },
+    {
+      count: 4,
+      title: "Physics",
+      desc: "Work with your team in real-time and set individual permissions.Parametric objects, polygonal editing, and more.",
+      img: "./poly-twist-knots.png",
+    },
+    {
+      count: 5,
+      title: "Interactive Experiences",
+      desc: "Work with your team in real-time and set individual permissions.Parametric objects, polygonal editing, and more.",
+      img: "./burger-shape.png",
+    },
+    {
+      count: 4,
+      title: "Physics",
+      desc: "Work with your team in real-time and set individual permissions.Parametric objects, polygonal editing, and more.",
+      img: "./poly-twist-knots.png",
+    },
+    {
+      count: 5,
+      title: "Interactive Experiences",
+      desc: "Work with your team in real-time and set individual permissions.Parametric objects, polygonal editing, and more.",
+      img: "./burger-shape.png",
+    },
+  ];
   useEffect(() => {
     let isDown = false;
     let startX;
@@ -38,17 +82,26 @@ function SectionTwo() {
 
   return (
     <div className={style.sectionTwoContainer}>
-      <div className={`${style.items}`} ref={slider}>
-        <div className={`${style.item} ${style.item1}`}>02</div>
-        <div className={`${style.item} ${style.item2}`}>03</div>
-        <div className={`${style.item} ${style.item3}`}>04</div>
-        <div className={`${style.item} ${style.item4}`}>05</div>
-        <div className={`${style.item} ${style.item5}`}>06</div>
-        <div className={`${style.item} ${style.item6}`}>07</div>
-        <div className={`${style.item} ${style.item7}`}>08</div>
-        <div className={`${style.item} ${style.item8}`}>09</div>
-        <div className={`${style.item} ${style.item9}`}>10</div>
-        <div className={`${style.item} ${style.item10}`}>11</div>
+      <div className={style.sectionOneHeading}>
+        <h1>
+          Tools to express your <span>creativity</span> in 3D
+        </h1>
+        <p>
+          3D opens a new door for creativity. A solid set of features that will
+          help you create your best 3d designs.
+        </p>
+      </div>
+      <div className={style.items} ref={slider}>
+        {cardsData.map((data) => (
+          <div className={style.item}>
+            <img src={data.img} alt="" />
+            <div>
+              <h1>{data.title}</h1>
+              <p>{data.desc}</p>
+              <a href="">Learn More</a>
+            </div>
+          </div>
+        ))}
       </div>
       {/* <div className={style.items ${style.item}vgContainer}>
         <svg
