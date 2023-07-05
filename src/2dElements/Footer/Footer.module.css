@@ -1,7 +1,7 @@
 .mainFooterContainer {
-  background-color: #9600ff;
+  background-color: #161d2d;
 
-  border-radius: 100px 100px 0 0;
+  /* border-radius: 100px 100px 0 0; */
   color: #fff;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -18,7 +18,7 @@
   justify-content: center;
   width: 100%;
   font-size: 15px;
-  color: #b1c4ec;
+  color: #7c7c7c;
   padding-bottom: 10px;
 }
 .footerSectionContainer {
@@ -37,7 +37,9 @@
   align-items: flex-start;
   padding: 20px 0;
 }
-
+.footerSectionContainer section {
+  color: #7c7c7c;
+}
 .footerSectionContainer section:first-child img {
   margin-top: 20px;
   margin-bottom: 16px;
@@ -45,6 +47,7 @@
 .footerSectionContainer section h5 {
   font-size: 20px;
   margin: 0;
+  color: #7c7c7c;
   margin-bottom: 17px;
 }
 .footerSectionContainer section ul {
@@ -56,11 +59,12 @@
   margin: 12px 0;
   cursor: pointer;
   font-size: 15px;
+  color: #e0e0e0;
 }
 .footerSectionContainer section ul li a {
   border: 0px;
   text-decoration: none;
-  color: #fff;
+  color: #e0e0e0;
 }
 .footerSectionContainer section ul li a:hover {
   color: rgb(213, 213, 213);
