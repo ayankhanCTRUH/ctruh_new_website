@@ -6,12 +6,3 @@ body {
   font-family: "Gasoek One", sans-serif;
   overscroll-behavior: none;
 }
-
-.canvasContainer {
-  width: 100vw !important;
-  height: 100vh !important;
-  background: linear-gradient(#9600ff, #d79ffe);
-}
-.mainHeadingCanvas {
-  color: #fff;
-}

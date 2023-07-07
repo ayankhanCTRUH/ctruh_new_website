@@ -1,0 +1,51 @@
+.bannerHeader,
+.bannerHeaderActive {
+  position: fixed;
+  display: flex;
+  z-index: 999;
+  align-items: center;
+  /* justify-content: space-between; */
+  color: #fff;
+  padding: 10px 25px;
+  pointer-events: all !important;
+  width: 92%;
+  margin: 20px 30px;
+}
+.bannerHeaderActive {
+  background: rgba(150, 0, 255, 0.4);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border-radius: 1in;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.headerLeft {
+  font-size: 27px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+}
+.headerRight {
+  font-size: 20px;
+  font-weight: 500;
+}
+.headerMiddle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0.93;
+  font-size: 20px;
+  font-weight: 400;
+  gap: 4%;
+}
+.headerContent {
+  padding: 10px 10px;
+  border: 2px solid transparent;
+  border-radius: 1in;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+.headerContent:hover {
+  border: 2px solid #ffffff;
+}

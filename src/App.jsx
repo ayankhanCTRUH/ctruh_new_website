@@ -1,40 +1,36 @@
 import style from "./App.module.css";
-import { Canvas } from "@react-three/fiber";
-import { Html } from "@react-three/drei";
-import Banner from "./2dElements/Banner/Banner";
-import Slider from "./2dElements/Slider/Slider";
-import Experience1 from "./3dElements/Experience1";
+import { Routes, Route, Link } from "react-router-dom";
+import LandingPage from "./LandingPage/LandingPage";
+import AboutUs from "./AboutUs/AboutUs";
 import { Suspense } from "react";
-import SectionOne from "./2dElements/SectionOne/SectionOne";
-import SectionTwo from "./2dElements/SectionTwo/SectionTwo";
-import SectionFour from "./2dElements/SectionFour/SectionFour";
-import Footer from "./2dElements/Footer/Footer";
-import SectionThree from "./2dElements/SectionThree/SectionThree";
+import Footer from "./LandingPage/2dElements/Footer/Footer";
+import Header from "./LandingPage/2dElements/Header/Header";
 
 function App() {
-  // const { color } = useControls({ color: "#9600ff" });
+  const routeConfig = [
+    { path: "/", element: <LandingPage /> },
+    { path: "/about_us", element: <AboutUs /> },
+  ];
 
   return (
-    <div className={style.mainWebsiteContainer}>
-      <Canvas
-        camera={{ position: [0, 0, -7] }}
-        className={style.canvasContainer}
-        // style={{ background: color }}
-      >
-        <Suspense fallback={null}>
-          <Experience1 />
-          <Html center style={{ width: "100vw", height: "100vh" }}>
-            <Banner />
-          </Html>
-        </Suspense>
-      </Canvas>
-      <SectionOne />
-      <SectionThree />
-      <SectionFour />
-      {/* <SectionTwo /> */}
-      <Slider />
+    <Suspense fallback={null}>
+      <Header />
+      <Routes>
+        {routeConfig.map((route, index) => (
+          <Route
+            key={index}
+            path={route?.path}
+            element={route?.element}
+            title={route?.title}
+          >
+            {route?.children?.map((child, index) => (
+              <Route key={index} path={child?.path} element={child?.element} />
+            ))}
+          </Route>
+        ))}
+      </Routes>
       <Footer />
-    </div>
+    </Suspense>
   );
 }
 

@@ -1,0 +1,103 @@
+.sectionOneMainContainer {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #9600ff;
+  position: relative;
+}
+.sectionOneInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  position: absolute;
+  z-index: 10;
+}
+.sectionOneInner h1 {
+  font-size: 90px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  position: relative;
+}
+.sectionOneInner h1::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  background-color: #ff9600;
+  z-index: -1;
+  bottom: 14px;
+}
+
+.sectionOneInner p:nth-of-type(1) {
+  font-size: 16px;
+  font-weight: 100;
+}
+.sectionOneInner p:nth-of-type(2) {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 30px;
+  width: 70%;
+}
+.img1,
+.img2,
+.img3,
+.img4 {
+  position: absolute;
+  width: 150px;
+  animation: size ease-out 0.5s forwards;
+}
+.img1 {
+  top: 60%;
+  right: 0;
+  width: 100px;
+  animation: fromRight ease-out 0.5s forwards;
+}
+.img2 {
+  top: 21%;
+  left: 12%;
+  width: 190px;
+  rotate: -45deg;
+}
+.img3 {
+  top: 80%;
+  left: 20%;
+  width: 80px;
+}
+.img4 {
+  width: 120px;
+  right: 15%;
+  top: 10%;
+  animation: size1 ease-out 0.5s forwards;
+}
+
+@keyframes size {
+  0% {
+    transform: scale(0) rotate(0);
+  }
+  100% {
+    transform: scale(1.2) rotate(45deg);
+  }
+}
+@keyframes size1 {
+  0% {
+    transform: scale(0) rotate(45deg);
+  }
+  100% {
+    transform: scale(1.2) rotate(-45deg);
+  }
+}
+@keyframes fromRight {
+  0% {
+    transform: scale(0) translateX(0);
+  }
+  80% {
+    transform: scale(1.2) translateX(-200px);
+  }
+  100% {
+    transform: scale(1.2) translateX(-180px);
+  }
+}

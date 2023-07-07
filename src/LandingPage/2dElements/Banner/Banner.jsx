@@ -5,17 +5,6 @@ import { useControls } from "leva";
 function Banner() {
   return (
     <div className={style.bannerContainer}>
-      <div className={style.bannerHeader}>
-        <div className={style.headerLeft}>Ctruh</div>
-        <div className={style.headerMiddle}>
-          <div className={style.headerContent}>About</div>
-          <div className={style.headerContent}>Blogs</div>
-          <div className={style.headerContent}>Contact</div>
-          <div className={style.headerContent}>What do we Offer</div>
-        </div>
-        <div className={style.headerRight}>EN</div>
-      </div>
-
       <div className={style.mainBanner}>
         <div className={style.bannerLeft}>
           <h1>
