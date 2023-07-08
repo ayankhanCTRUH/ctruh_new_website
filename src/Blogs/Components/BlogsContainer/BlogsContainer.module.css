@@ -1,0 +1,153 @@
+.BlogsMainContainer {
+  height: 100%;
+  border-radius: 50px 50px 0 0;
+  transform: translateY(-50px);
+  background-color: #fff;
+  padding: 5%;
+  padding-bottom: 0;
+}
+.BlogsActive {
+  display: flex;
+  gap: 2%;
+}
+.imgContainer img {
+  width: 400px;
+  background-color: #d9c9ff;
+}
+.imgContainer {
+  width: 65%;
+  background-color: #d9c9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  position: relative;
+}
+.blogsDesc {
+  width: 35%;
+}
+.blogsDesc h1 {
+  font-size: 40px;
+  font-weight: 400;
+  color: #030303;
+  margin-top: 0;
+}
+.blogsDesc p {
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 200;
+  color: #5b606c;
+}
+.AvatarimgContainer img {
+  width: 60px;
+  object-fit: contain;
+}
+.AvatarimgContainer {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+.AvatarimgContainer h5 {
+  font-size: 15px;
+  font-weight: 400;
+}
+.blogsInfo {
+  display: flex;
+  justify-content: space-between;
+}
+.blogsDesc a {
+  text-decoration: none;
+  color: #9600ff;
+}
+.blogsDesc a:hover {
+  border-bottom: 1px solid #9600ff;
+}
+.blogsInfo h6 {
+  color: #6b7280;
+  font-weight: 200;
+  font-size: 14px;
+}
+
+.blogsCardContainer {
+  display: flex;
+  /* flex-wrap: wrap; */
+  margin-top: 40px;
+  gap: 3%;
+}
+.blogsCard {
+  flex: 0 1 100%;
+  /* max-width: 380px;
+  min-width: 200px; */
+}
+.blogsCardImgContainer {
+  background-color: #d9c9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  position: relative;
+}
+.blogsCard img {
+  width: 250px;
+}
+.blogsTimeDetails {
+  display: flex;
+  gap: 5%;
+}
+
+.blogsTimeDetails h6 {
+  color: #6b7280;
+  font-weight: 200;
+  font-size: 14px;
+  margin: 20px 0;
+}
+.blogsCardDescContaier h1 {
+  font-size: 27px;
+  font-weight: 400;
+  color: #030303;
+  margin-top: 0;
+}
+
+.blogsCardDescContaier p {
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 200;
+  color: #5b606c;
+}
+.blogsAvatarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.blogsAvatarContainer img {
+  width: 45px;
+  object-fit: contain;
+}
+.blogsAvatarContainer h6 {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+}
+.blogsTypeContainer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  gap: 10px;
+  margin-left: 20px;
+}
+.blogsTypeContainer h5 {
+  color: #705cf6;
+  color: white;
+  margin: 10px 0;
+  padding: 3px 7px;
+  font-weight: 200;
+  font-size: 13px;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(113, 92, 246, 0.367);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}

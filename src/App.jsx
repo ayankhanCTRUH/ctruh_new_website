@@ -5,11 +5,13 @@ import AboutUs from "./AboutUs/AboutUs";
 import { Suspense } from "react";
 import Footer from "./LandingPage/2dElements/Footer/Footer";
 import Header from "./LandingPage/2dElements/Header/Header";
+import Blogs from "./Blogs/Blogs";
 
 function App() {
   const routeConfig = [
     { path: "/", element: <LandingPage /> },
     { path: "/about_us", element: <AboutUs /> },
+    { path: "/blogs", element: <Blogs /> },
   ];
 
   return (

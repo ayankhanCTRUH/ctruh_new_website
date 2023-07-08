@@ -1,0 +1,46 @@
+.blogsBanner {
+  height: 68vh;
+  background-image: url("https://writesonic.com/blog/assets/images/header-bg-gradient.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+}
+.bannerLeft video {
+  width: 100%;
+}
+.bannerLeft {
+  width: 400px;
+}
+.bannerRight {
+  color: #fff;
+  width: 50%;
+}
+.bannerRight h1 {
+  font-size: 50px;
+  font-weight: 400;
+}
+.bannerRight p {
+  font-size: 18px;
+  font-weight: 300;
+  color: #9ca3af;
+}
+.seeAllContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4% 4% 4%;
+}
+.seeAllContainer button {
+  background-color: #f6f6fd;
+  color: #705cf6;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 20px 40px;
+  border-radius: 150px;
+  cursor: pointer;
+}

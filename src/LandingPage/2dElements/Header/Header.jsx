@@ -31,7 +31,9 @@ function Header() {
         <Link className={style.headerContent} to={"/about_us"}>
           About
         </Link>
-        <div className={style.headerContent}>Blogs</div>
+        <Link className={style.headerContent} to={"/blogs"}>
+          Blogs
+        </Link>
         <div className={style.headerContent}>Contact</div>
         <div className={style.headerContent}>What do we Offer</div>
       </div>
