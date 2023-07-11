@@ -5,7 +5,7 @@
   z-index: 999;
   align-items: center;
   /* justify-content: space-between; */
-  color: #fff;
+  color: #000;
   padding: 10px 25px;
   pointer-events: all !important;
   width: 92%;
@@ -23,7 +23,7 @@
   font-size: 27px;
   font-weight: 500;
   text-decoration: none;
-  color: #fff;
+  color: #000;
 }
 .headerRight {
   font-size: 20px;
@@ -44,7 +44,7 @@
   border-radius: 1in;
   cursor: pointer;
   text-decoration: none;
-  color: #fff;
+  color: #000;
 }
 .headerContent:hover {
   border: 2px solid #ffffff;

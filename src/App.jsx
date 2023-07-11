@@ -6,33 +6,78 @@ import { Suspense } from "react";
 import Footer from "./LandingPage/2dElements/Footer/Footer";
 import Header from "./LandingPage/2dElements/Header/Header";
 import Blogs from "./Blogs/Blogs";
+import { useState } from "react";
+import { useEffect } from "react";
+import { motion } from "framer-motion";
+import ContactUs from "./ContactUs/ContactUs";
+import BlogsPage from "./Blogs/Components/BlogsPage/BlogsPage";
 
 function App() {
   const routeConfig = [
     { path: "/", element: <LandingPage /> },
     { path: "/about_us", element: <AboutUs /> },
     { path: "/blogs", element: <Blogs /> },
+    { path: "/contact_us", element: <ContactUs /> },
+    {
+      path: "/blogs/:blogTitle",
+      element: <BlogsPage />,
+    },
   ];
 
+  // const [mousePosition, setMousePosition] = useState({
+  //   x: 0,
+  //   y: 0,
+  // });
+
+  // useEffect(() => {
+  //   const mouseMove = (e) => {
+  //     setMousePosition({
+  //       x: e.clientX,
+  //       y: e.clientY,
+  //     });
+  //   };
+  //   window.addEventListener("mousemove", mouseMove);
+  //   return () => {
+  //     window.removeEventListener("mousemove");
+  //   };
+  // }, []);
+  // console.log(mousePosition);
+  // const varients = {
+  //   default: {
+  //     x: mousePosition.x - 16,
+  //     y: mousePosition.y - 16,
+  //   },
+  // };
   return (
-    <Suspense fallback={null}>
-      <Header />
-      <Routes>
-        {routeConfig.map((route, index) => (
-          <Route
-            key={index}
-            path={route?.path}
-            element={route?.element}
-            title={route?.title}
-          >
-            {route?.children?.map((child, index) => (
-              <Route key={index} path={child?.path} element={child?.element} />
-            ))}
-          </Route>
-        ))}
-      </Routes>
-      <Footer />
-    </Suspense>
+    <>
+      <Suspense fallback={null}>
+        <Header />
+        <Routes>
+          {routeConfig.map((route, index) => (
+            <Route
+              key={index}
+              path={route?.path}
+              element={route?.element}
+              title={route?.title}
+            >
+              {route?.children?.map((child, index) => (
+                <Route
+                  key={index}
+                  path={child?.path}
+                  element={child?.element}
+                />
+              ))}
+            </Route>
+          ))}
+        </Routes>
+        <Footer />
+      </Suspense>
+      {/* <motion.div
+        className={style.cursor}
+        animate="default"
+        variants={varients}
+      ></motion.div> */}
+    </>
   );
 }
 

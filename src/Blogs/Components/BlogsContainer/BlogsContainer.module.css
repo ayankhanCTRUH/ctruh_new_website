@@ -9,6 +9,7 @@
 .BlogsActive {
   display: flex;
   gap: 2%;
+  text-decoration: none;
 }
 .imgContainer img {
   width: 400px;
@@ -77,8 +78,7 @@
 }
 .blogsCard {
   flex: 0 1 100%;
-  /* max-width: 380px;
-  min-width: 200px; */
+  text-decoration: none;
 }
 .blogsCardImgContainer {
   background-color: #d9c9ff;
@@ -93,7 +93,7 @@
 }
 .blogsTimeDetails {
   display: flex;
-  gap: 5%;
+  justify-content: space-between;
 }
 
 .blogsTimeDetails h6 {
@@ -129,6 +129,7 @@
   font-size: 14px;
   font-weight: 400;
   margin: 0;
+  color: #030303;
 }
 .blogsTypeContainer {
   display: flex;
