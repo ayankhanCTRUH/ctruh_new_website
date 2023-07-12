@@ -2,9 +2,11 @@ import React from "react";
 import style from "./Header.module.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import store from "../../../store";
 
 function Header() {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const { navDark, setNavDark } = store();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -18,26 +20,50 @@ function Header() {
       return () => window.removeEventListener("scroll", handleScroll);
     }
   }, []);
+
+  console.log(navDark);
   return (
     <div
       className={
-        scrollPosition > 82 ? style.bannerHeaderActive : style.bannerHeader
+        scrollPosition > 82
+          ? style.bannerHeaderActive
+          : navDark === "contact"
+          ? style.bannerHeaderBlack
+          : style.bannerHeader
       }
     >
-      <Link className={style.headerLeft} to={"/"}>
+      <Link
+        onClick={() => setNavDark("")}
+        className={style.headerLeft}
+        to={"/"}
+      >
         Ctruh
       </Link>
       <div className={style.headerMiddle}>
-        <Link className={style.headerContent} to={"/about_us"}>
+        <Link
+          onClick={() => setNavDark("")}
+          className={style.headerContent}
+          to={"/about_us"}
+        >
           About
         </Link>
-        <Link className={style.headerContent} to={"/blogs"}>
+        <Link
+          onClick={() => setNavDark("")}
+          className={style.headerContent}
+          to={"/blogs"}
+        >
           Blogs
         </Link>
-        <Link className={style.headerContent} to={"/contact_us"}>
+        <Link
+          onClick={() => setNavDark("contact")}
+          className={style.headerContent}
+          to={"/contact_us"}
+        >
           Contact
         </Link>
-        <div className={style.headerContent}>What do we Offer</div>
+        <Link to={"/application"} className={style.headerContent}>
+          Applications
+        </Link>
       </div>
       <div className={style.headerRight}>EN</div>
     </div>

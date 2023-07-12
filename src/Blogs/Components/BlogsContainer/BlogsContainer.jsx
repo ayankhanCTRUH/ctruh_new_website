@@ -1,17 +1,32 @@
-import React from "react";
+import { useRef } from "react";
 import style from "./BlogsContainer.module.css";
 import blogsData from "../BlogsData/data.json";
 import { Link } from "react-router-dom";
+import { motion, useInView } from "framer-motion";
 
 function BlogsContainer() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  console.log(ref, isInView);
   return (
     <div className={style.BlogsMainContainer}>
       <Link to={`/blogs/${blogsData[0]?.url}`} className={style.BlogsActive}>
-        <div className={style.imgContainer}>
+        <motion.div
+          initial={{ x: -20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          className={style.imgContainer}
+        >
           <img src={blogsData[0].thumbnail} alt="" />
-        </div>
+        </motion.div>
         <div className={style.blogsDesc}>
-          <div className={style.blogsInfo}>
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            className={style.blogsInfo}
+          >
             <div className={style.AvatarimgContainer}>
               <img
                 src="https://cliply.co/wp-content/uploads/2020/08/442008112_GLANCING_AVATAR_3D_400px.gif"
@@ -22,15 +37,44 @@ function BlogsContainer() {
             </div>
             <h6>{blogsData[0].date}</h6>
             <h6>23 min read</h6>
-          </div>
-          <h1>{blogsData[0].seo.title}</h1>
-          <p>{blogsData[0].seo.desc}</p>
-          <a href="">Learn More</a>
+          </motion.div>
+          <motion.h1
+            initial={{ y: 50 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1.1, ease: "easeInOut" }}
+          >
+            {blogsData[0].seo.title}
+          </motion.h1>
+          <motion.p
+            initial={{ y: 50 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+          >
+            {blogsData[0].seo.desc}
+          </motion.p>
+          <motion.p
+            className={style.learnMore}
+            initial={{ y: 50 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1.3, ease: "easeInOut" }}
+            href=""
+          >
+            Learn More
+          </motion.p>
         </div>
       </Link>
       <div className={style.blogsCardContainer}>
-        {blogsData.slice(1, -1).map((data) => (
-          <Link to={`/blogs/${data?.url}`} className={style.blogsCard}>
+        {blogsData.slice(1, -1).map((data, index) => (
+          <Link
+            ref={ref}
+            to={`/blogs/${data?.url}`}
+            className={style.blogsCard}
+            style={{
+              transform: isInView ? "none" : `translateX(-${index * 80}px)`,
+              opacity: isInView ? 1 : 0,
+              transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+            }}
+          >
             <div className={style.blogsCardImgContainer}>
               <img src={data.thumbnail} alt="" />
               <div className={style.blogsTypeContainer}>

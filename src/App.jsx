@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import ContactUs from "./ContactUs/ContactUs";
 import BlogsPage from "./Blogs/Components/BlogsPage/BlogsPage";
+import Applications from "./Applications/Applications";
 
 function App() {
   const routeConfig = [
@@ -21,6 +22,10 @@ function App() {
     {
       path: "/blogs/:blogTitle",
       element: <BlogsPage />,
+    },
+    {
+      path: "/application",
+      element: <Applications />,
     },
   ];
 

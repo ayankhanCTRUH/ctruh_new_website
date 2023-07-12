@@ -1,9 +1,9 @@
 .blogsBanner {
-  height: 68vh;
+  height: 80vh;
   background-image: url("https://writesonic.com/blog/assets/images/header-bg-gradient.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #000;
+  background-color: #9600ff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,20 +13,26 @@
   width: 100%;
 }
 .bannerLeft {
-  width: 400px;
+  width: 50%;
+  margin-bottom: 5%;
+  position: absolute;
+  left: 0;
 }
 .bannerRight {
   color: #fff;
   width: 50%;
+  margin-bottom: 5%;
+  position: absolute;
+  right: 10%;
 }
 .bannerRight h1 {
   font-size: 50px;
-  font-weight: 400;
+  font-weight: 500;
 }
 .bannerRight p {
   font-size: 18px;
   font-weight: 300;
-  color: #9ca3af;
+  color: #e0e0e0;
 }
 .seeAllContainer {
   display: flex;

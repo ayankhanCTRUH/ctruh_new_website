@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./ContactUs.module.css";
+import { motion } from "framer-motion";
 import {
   TbBrandInstagram,
   TbBrandLinkedin,
@@ -10,12 +11,32 @@ import {
 function ContactUs() {
   return (
     <div className={style.contactMainContainer}>
-      <div className={style.leftSection}>
-        <h1>
+      <motion.div
+        initial={{ x: -40, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1.2, ease: "easeInOut" }}
+        className={style.leftSection}
+      >
+        <motion.h1
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+        >
           Got a question? <br />
-          <span>Get in Touch </span>
-        </h1>
-        <div className={style.contactInfoContainer}>
+          <motion.span
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+          >
+            Get in Touch{" "}
+          </motion.span>
+        </motion.h1>
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          className={style.contactInfoContainer}
+        >
           <div className={style.contactInfo}>
             <h1>Banglore HQ</h1>
             <p>
@@ -61,10 +82,15 @@ function ContactUs() {
               <TbBrandFacebook />
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      <div className={style.rightSection}>
+      <motion.div
+        initial={{ x: 100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className={style.rightSection}
+      >
         <div className={`${style.rounded_text} ${style.rotating}`}>
           <svg viewBox="0 0 370 370">
             <path
@@ -88,7 +114,7 @@ function ContactUs() {
           </svg>
         </div>
         <img src="brainstorm.png" alt="" />
-      </div>
+      </motion.div>
     </div>
   );
 }
