@@ -1,31 +1,65 @@
-import React from "react";
+import { useRef } from "react";
 import style from "./SectionTwo.module.css";
 import Marquee from "react-fast-marquee";
+import { motion, useInView } from "framer-motion";
 
 function SectionTwo() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <div className={style.sectionTwoMainContainer}>
       <div className={style.sectionTwoInner}>
         <div className={style.sectionTwoInnerPartOne}>
-          <h1>Hard work and a passion for quality</h1>
+          <motion.h1
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateY(100px)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+            }}
+          >
+            Hard work and a passion for quality
+          </motion.h1>
           <div className={style.sectionInnerPartOnePara}>
-            <p>
+            <motion.p
+              ref={ref}
+              style={{
+                transform: isInView ? "none" : "translateX(-200px)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              }}
+            >
               These are the values that unite the three of us. At our core,
               we're a team of passionate designers who share a deep commitment
               to our craft. Our journey began with a shared dream of creating
               designs that truly resonated with people, and we knew that could
               only be achieved through hard work and uncompromising quality.
-            </p>
-            <p>
+            </motion.p>
+            <motion.p
+              ref={ref}
+              style={{
+                transform: isInView ? "none" : "translateX(200px)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              }}
+            >
               Today, we're proud to be known as a trusted partner for businesses
               and individuals looking for solutions that are both beautiful and
               functional. We believe that the work we do has the power to change
               and shape this wonderful community. And we're grateful for the
               opportunity to do what we love every day.
-            </p>
+            </motion.p>
           </div>
         </div>
-        <div className={style.sectionInnerPartTwo}>
+        <motion.div
+          className={style.sectionInnerPartTwo}
+          ref={ref}
+          style={{
+            // transform: isInView ? "none" : "translateX(200px)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 1.5s ease-in-out",
+          }}
+        >
           <div>
             <h1>Our Vision</h1>
             <p>
@@ -42,7 +76,7 @@ function SectionTwo() {
             muted
             width={350}
           ></video>
-        </div>
+        </motion.div>
 
         <Marquee
           className={style.marquee}

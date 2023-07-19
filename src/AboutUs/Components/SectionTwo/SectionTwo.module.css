@@ -18,9 +18,9 @@
   width: 60%;
   align-items: center;
   justify-content: center;
-  gap: 7%;
+  gap: 5%;
   text-align: left;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 25px;
   font-weight: 300;
 }
@@ -31,7 +31,7 @@
   flex-direction: column;
 }
 .sectionTwoInnerPartOne h1 {
-  font-size: 55px;
+  font-size: 40px;
   font-weight: 400;
   text-align: left;
 }
@@ -54,14 +54,14 @@
   color: #fff;
 }
 .sectionInnerPartTwo h1 {
-  font-size: 60px;
+  font-size: 50px;
   margin-left: 30px;
   font-weight: 300;
 }
 
 .sectionInnerPartTwo p {
   width: 70%;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 25px;
   margin-left: 30px;
   color: rgba(255, 255, 255, 0.748);
@@ -76,4 +76,23 @@
 }
 .marquee img {
   margin: 0 80px;
+}
+
+@media screen and (max-width: 850px) {
+  .sectionInnerPartOnePara {
+    flex-direction: column;
+    width: 80%;
+  }
+  .sectionInnerPartTwo {
+    flex-direction: column;
+    width: 90%;
+  }
+  .sectionTwoInnerPartOne h1 {
+    margin: 0 10%;
+    margin-bottom: 5%;
+  }
+  .sectionInnerPartTwo p {
+    width: 90%;
+    margin-bottom: 15%;
+  }
 }

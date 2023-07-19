@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./ContactUs.module.css";
+import * as THREE from "three";
 import { motion } from "framer-motion";
 import {
   TbBrandInstagram,
@@ -7,8 +8,37 @@ import {
   TbBrandTwitter,
   TbBrandFacebook,
 } from "react-icons/tb";
+import { Canvas } from "@react-three/fiber";
+import { useRef, useState } from "react";
+import { useFrame } from "@react-three/fiber";
+import { Center, OrbitControls, useGLTF } from "@react-three/drei";
+import { easing } from "maath";
+
+function Suzanne(props) {
+  const mesh = useRef();
+  const { nodes } = useGLTF("./TzAg-suzanne.glb");
+  const [dummy] = useState(() => new THREE.Object3D());
+  useFrame((state, dt) => {
+    dummy.lookAt(state.pointer.x, state.pointer.y, 1);
+    easing.dampQ(mesh.current.quaternion, dummy.quaternion, 0.15, dt);
+  });
+
+  return (
+    <mesh
+      ref={mesh}
+      geometry={nodes.Suzanne.geometry}
+      {...props}
+      scale={0.6}
+      position={[2, 0, 0]}
+    >
+      <meshNormalMaterial />
+    </mesh>
+  );
+}
 
 function ContactUs() {
+  const mainGlb = useGLTF("./0 (7).glb");
+
   return (
     <div className={style.contactMainContainer}>
       <motion.div
@@ -92,11 +122,11 @@ function ContactUs() {
         className={style.rightSection}
       >
         <div className={`${style.rounded_text} ${style.rotating}`}>
-          <svg viewBox="0 0 370 370">
+          <svg viewBox="0 0 350 350">
             <path
               id="textPath"
               d="M 85,0 A 85,85 0 0 1 -85,0 A 85,85 0 0 1 85,0"
-              transform="translate(185,185)"
+              transform="translate(175,175)"
               fill="none"
               strokeWidth="0"
             ></path>
@@ -113,8 +143,14 @@ function ContactUs() {
             </g>
           </svg>
         </div>
-        <img src="brainstorm.png" alt="" />
+        {/* <img src="brainstorm.png" alt="" /> */}
       </motion.div>
+
+      <Canvas className={style.canvasMain} camera={{ position: [0, 0.1, 3] }}>
+        <ambientLight />
+        <directionalLight position={[10, 10, 10]} />
+        <Suzanne />
+      </Canvas>
     </div>
   );
 }

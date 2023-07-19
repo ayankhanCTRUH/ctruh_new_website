@@ -2,10 +2,14 @@ import React from "react";
 import style from "./Header.module.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { TbMenu2 } from "react-icons/tb";
+import { MdClose } from "react-icons/md";
 import store from "../../../store";
 
 function Header() {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [mobileNav, setMobileNav] = useState(false);
+  const [menueClicked, setMenuClicked] = useState(false);
   const { navDark, setNavDark } = store();
 
   useEffect(() => {
@@ -15,13 +19,23 @@ function Header() {
         setScrollPosition(position);
       };
 
-      window.addEventListener("scroll", handleScroll);
+      const handleResize = () => {
+        if (window.innerWidth < 850) {
+          setMobileNav(true);
+        } else {
+          setMobileNav(false);
+        }
+      };
 
-      return () => window.removeEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", handleScroll);
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
     }
   }, []);
 
-  console.log(navDark);
   return (
     <div
       className={
@@ -39,6 +53,7 @@ function Header() {
       >
         Ctruh
       </Link>
+
       <div className={style.headerMiddle}>
         <Link
           onClick={() => setNavDark("")}
@@ -66,6 +81,43 @@ function Header() {
         </Link>
       </div>
       <div className={style.headerRight}>EN</div>
+
+      <div className={style.mobileNav}>
+        {menueClicked ? (
+          <MdClose size={30} onClick={() => setMenuClicked(!menueClicked)} />
+        ) : (
+          <TbMenu2 size={30} onClick={() => setMenuClicked(!menueClicked)} />
+        )}
+
+        {menueClicked && (
+          <div className={style.mobileNavContainer}>
+            <Link
+              onClick={() => setNavDark("")}
+              className={style.headerContent}
+              to={"/about_us"}
+            >
+              About
+            </Link>
+            <Link
+              onClick={() => setNavDark("")}
+              className={style.headerContent}
+              to={"/blogs"}
+            >
+              Blogs
+            </Link>
+            <Link
+              onClick={() => setNavDark("contact")}
+              className={style.headerContent}
+              to={"/contact_us"}
+            >
+              Contact
+            </Link>
+            <Link to={"/application"} className={style.headerContent}>
+              Applications
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

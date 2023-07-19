@@ -19,17 +19,9 @@ function LandingPage() {
         <Canvas
           camera={{ position: [0, 0, -7] }}
           className={style.canvasContainer}
-          // style={{ background: color }}
         >
           <Suspense fallback={null}>
             <Experience1 />
-            {/* <Html
-              center
-              style={{
-                width: "100vw",
-                height: "100vh",
-              }}
-            ></Html> */}
           </Suspense>
         </Canvas>
         <Banner />
@@ -37,7 +29,6 @@ function LandingPage() {
       <SectionOne />
       <SectionThree />
       <SectionFour />
-      {/* <SectionTwo /> */}
       <Slider />
     </>
   );

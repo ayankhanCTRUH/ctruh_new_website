@@ -1,23 +1,208 @@
-import React from "react";
+import { useRef, useEffect } from "react";
 import style from "./SectionThree.module.css";
-import * as THREE from "three";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Environment, useTexture } from "@react-three/drei";
-import { Physics, useSphere } from "@react-three/cannon";
-import { EffectComposer, N8AO, SMAA } from "@react-three/postprocessing";
-
-const rfs = THREE.MathUtils.randFloatSpread;
-const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
-const baubleMaterial = new THREE.MeshStandardMaterial({
-  color: "#9600ff",
-  roughness: 0,
-  envMapIntensity: 1,
-});
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 function SectionThree() {
+  const canvasref = useRef();
+  const pageEnd = useRef();
+
+  const canvas = (canvas, context) => {
+    const html = document.documentElement;
+
+    const frameCount = 118;
+    // const currentFrame = (index) =>
+    //   `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index
+    //     .toString()
+    //     .padStart(4, "0")}.jpg`;
+    function currentFrame(index) {
+      var data = `
+      https://zelt.app/assets/img/home/hero/sequence/1.webp
+      https://zelt.app/assets/img/home/hero/sequence/2.webp
+      https://zelt.app/assets/img/home/hero/sequence/3.webp
+      https://zelt.app/assets/img/home/hero/sequence/4.webp
+      https://zelt.app/assets/img/home/hero/sequence/5.webp
+      https://zelt.app/assets/img/home/hero/sequence/6.webp
+      https://zelt.app/assets/img/home/hero/sequence/7.webp
+      https://zelt.app/assets/img/home/hero/sequence/8.webp
+      https://zelt.app/assets/img/home/hero/sequence/9.webp
+      https://zelt.app/assets/img/home/hero/sequence/10.webp
+      https://zelt.app/assets/img/home/hero/sequence/11.webp
+      https://zelt.app/assets/img/home/hero/sequence/12.webp
+      https://zelt.app/assets/img/home/hero/sequence/13.webp
+      https://zelt.app/assets/img/home/hero/sequence/14.webp
+      https://zelt.app/assets/img/home/hero/sequence/15.webp
+      https://zelt.app/assets/img/home/hero/sequence/16.webp
+      https://zelt.app/assets/img/home/hero/sequence/17.webp
+      https://zelt.app/assets/img/home/hero/sequence/18.webp
+      https://zelt.app/assets/img/home/hero/sequence/19.webp
+      https://zelt.app/assets/img/home/hero/sequence/20.webp
+      https://zelt.app/assets/img/home/hero/sequence/21.webp
+      https://zelt.app/assets/img/home/hero/sequence/22.webp
+      https://zelt.app/assets/img/home/hero/sequence/23.webp
+      https://zelt.app/assets/img/home/hero/sequence/24.webp
+      https://zelt.app/assets/img/home/hero/sequence/25.webp
+      https://zelt.app/assets/img/home/hero/sequence/26.webp
+      https://zelt.app/assets/img/home/hero/sequence/27.webp
+      https://zelt.app/assets/img/home/hero/sequence/28.webp
+      https://zelt.app/assets/img/home/hero/sequence/29.webp
+      https://zelt.app/assets/img/home/hero/sequence/30.webp
+      https://zelt.app/assets/img/home/hero/sequence/31.webp
+      https://zelt.app/assets/img/home/hero/sequence/32.webp
+      https://zelt.app/assets/img/home/hero/sequence/33.webp
+      https://zelt.app/assets/img/home/hero/sequence/34.webp
+      https://zelt.app/assets/img/home/hero/sequence/35.webp
+      https://zelt.app/assets/img/home/hero/sequence/36.webp
+      https://zelt.app/assets/img/home/hero/sequence/37.webp
+      https://zelt.app/assets/img/home/hero/sequence/38.webp
+      https://zelt.app/assets/img/home/hero/sequence/39.webp
+      https://zelt.app/assets/img/home/hero/sequence/40.webp
+      https://zelt.app/assets/img/home/hero/sequence/41.webp
+      https://zelt.app/assets/img/home/hero/sequence/42.webp
+      https://zelt.app/assets/img/home/hero/sequence/43.webp
+      https://zelt.app/assets/img/home/hero/sequence/44.webp
+      https://zelt.app/assets/img/home/hero/sequence/45.webp
+      https://zelt.app/assets/img/home/hero/sequence/46.webp
+      https://zelt.app/assets/img/home/hero/sequence/47.webp
+      https://zelt.app/assets/img/home/hero/sequence/48.webp
+      https://zelt.app/assets/img/home/hero/sequence/49.webp
+      https://zelt.app/assets/img/home/hero/sequence/50.webp
+      https://zelt.app/assets/img/home/hero/sequence/51.webp
+      https://zelt.app/assets/img/home/hero/sequence/52.webp
+      https://zelt.app/assets/img/home/hero/sequence/53.webp
+      https://zelt.app/assets/img/home/hero/sequence/54.webp
+      https://zelt.app/assets/img/home/hero/sequence/55.webp
+      https://zelt.app/assets/img/home/hero/sequence/56.webp
+      https://zelt.app/assets/img/home/hero/sequence/57.webp
+      https://zelt.app/assets/img/home/hero/sequence/58.webp
+      https://zelt.app/assets/img/home/hero/sequence/59.webp
+      https://zelt.app/assets/img/home/hero/sequence/60.webp
+      https://zelt.app/assets/img/home/hero/sequence/61.webp
+      https://zelt.app/assets/img/home/hero/sequence/62.webp
+      https://zelt.app/assets/img/home/hero/sequence/63.webp
+      https://zelt.app/assets/img/home/hero/sequence/64.webp
+      https://zelt.app/assets/img/home/hero/sequence/65.webp
+      https://zelt.app/assets/img/home/hero/sequence/66.webp
+      https://zelt.app/assets/img/home/hero/sequence/67.webp
+      https://zelt.app/assets/img/home/hero/sequence/68.webp
+      https://zelt.app/assets/img/home/hero/sequence/69.webp
+      https://zelt.app/assets/img/home/hero/sequence/70.webp
+      https://zelt.app/assets/img/home/hero/sequence/71.webp
+      https://zelt.app/assets/img/home/hero/sequence/72.webp
+      https://zelt.app/assets/img/home/hero/sequence/73.webp
+      https://zelt.app/assets/img/home/hero/sequence/74.webp
+      https://zelt.app/assets/img/home/hero/sequence/75.webp
+      https://zelt.app/assets/img/home/hero/sequence/76.webp
+      https://zelt.app/assets/img/home/hero/sequence/77.webp
+      https://zelt.app/assets/img/home/hero/sequence/78.webp
+      https://zelt.app/assets/img/home/hero/sequence/79.webp
+      https://zelt.app/assets/img/home/hero/sequence/80.webp
+      https://zelt.app/assets/img/home/hero/sequence/81.webp
+      https://zelt.app/assets/img/home/hero/sequence/82.webp
+      https://zelt.app/assets/img/home/hero/sequence/83.webp
+      https://zelt.app/assets/img/home/hero/sequence/84.webp
+      https://zelt.app/assets/img/home/hero/sequence/85.webp
+      https://zelt.app/assets/img/home/hero/sequence/86.webp
+      https://zelt.app/assets/img/home/hero/sequence/87.webp
+      https://zelt.app/assets/img/home/hero/sequence/88.webp
+      https://zelt.app/assets/img/home/hero/sequence/89.webp
+      https://zelt.app/assets/img/home/hero/sequence/90.webp
+      https://zelt.app/assets/img/home/hero/sequence/91.webp
+      https://zelt.app/assets/img/home/hero/sequence/92.webp
+      https://zelt.app/assets/img/home/hero/sequence/93.webp
+      https://zelt.app/assets/img/home/hero/sequence/94.webp
+      https://zelt.app/assets/img/home/hero/sequence/95.webp
+      https://zelt.app/assets/img/home/hero/sequence/96.webp
+      https://zelt.app/assets/img/home/hero/sequence/97.webp
+      https://zelt.app/assets/img/home/hero/sequence/98.webp
+      https://zelt.app/assets/img/home/hero/sequence/99.webp
+      https://zelt.app/assets/img/home/hero/sequence/100.webp
+      https://zelt.app/assets/img/home/hero/sequence/101.webp
+      https://zelt.app/assets/img/home/hero/sequence/102.webp
+      https://zelt.app/assets/img/home/hero/sequence/103.webp
+      https://zelt.app/assets/img/home/hero/sequence/104.webp
+      https://zelt.app/assets/img/home/hero/sequence/105.webp
+      https://zelt.app/assets/img/home/hero/sequence/106.webp
+      https://zelt.app/assets/img/home/hero/sequence/107.webp
+      https://zelt.app/assets/img/home/hero/sequence/108.webp
+      https://zelt.app/assets/img/home/hero/sequence/109.webp
+      https://zelt.app/assets/img/home/hero/sequence/110.webp
+      https://zelt.app/assets/img/home/hero/sequence/111.webp
+      https://zelt.app/assets/img/home/hero/sequence/112.webp
+      https://zelt.app/assets/img/home/hero/sequence/113.webp
+      https://zelt.app/assets/img/home/hero/sequence/114.webp
+      https://zelt.app/assets/img/home/hero/sequence/115.webp
+      https://zelt.app/assets/img/home/hero/sequence/116.webp
+      https://zelt.app/assets/img/home/hero/sequence/117.webp
+      https://zelt.app/assets/img/home/hero/sequence/118.webp
+   `;
+      return data.split("\n")[index];
+    }
+
+    const preloadImages = () => {
+      for (let i = 1; i < frameCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i);
+      }
+    };
+
+    const img = new Image();
+    img.src = currentFrame(1);
+    // Set canvas dimensions
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    img.onload = function () {
+      context.drawImage(img, 0, 0);
+    };
+
+    const updateImage = (index) => {
+      img.src = currentFrame(index);
+      context.drawImage(img, 0, 0);
+    };
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = html.scrollTop;
+      const maxScrollTop = html.scrollHeight - window.innerHeight;
+      const scrollFraction = scrollTop / maxScrollTop;
+      const frameIndex = Math.min(
+        frameCount - 1,
+        Math.ceil(scrollFraction * frameCount)
+      );
+
+      requestAnimationFrame(() => updateImage(frameIndex + 1));
+    });
+    preloadImages();
+  };
+
+  useEffect(() => {
+    if (canvasref.current) {
+      const canvas1 = canvasref.current.getContext("2d");
+      canvas(canvasref.current, canvas1);
+      // do something here with the canvas
+    }
+    gsap.to(canvasref.current, {
+      scrollTrigger: {
+        trigger: canvasref.current,
+        start: "top top",
+        end: "bottom bottom",
+        endTrigger: pageEnd.current,
+        markers: true,
+        scrub: 1,
+        pin: canvasref.current,
+      },
+    });
+  }, []);
+
   return (
     <div className={style.sectionThreeContainer}>
-      <div className={style.leftPart}>
+      <canvas ref={canvasref}></canvas>
+      <div className={style.page}></div>
+      <div className={style.page}></div>
+      <div className={style.page}></div>
+      <div className={style.page}></div>
+      <div className={style.page8} ref={pageEnd}></div>
+      {/* <div className={style.leftPart}>
         <h1>Our Story</h1>
         <p>
           We are a team of experienced designers, united by our passion for
@@ -30,42 +215,8 @@ function SectionThree() {
         </p>
       </div>
       <div className={style.rightPart}>
-        <Canvas
-          shadows
-          gl={{ antialias: false }}
-          dpr={[1, 1.5]}
-          camera={{ position: [0, 0, 30], fov: 35, near: 1, far: 40 }}
-        >
-          <ambientLight intensity={0.5} />
-          <color attach="background" args={["#fff"]} />
-          <spotLight
-            intensity={1}
-            angle={0.2}
-            penumbra={1}
-            position={[30, 30, 30]}
-            castShadow
-            shadow-mapSize={[512, 512]}
-          />
 
-          <Physics gravity={[0, 2, 0]} iterations={10} position={[10, 0, 0]}>
-            <Pointer />
-            <Clump />
-          </Physics>
-
-          <Environment files="/adamsbridge.hdr" />
-          <EffectComposer disableNormalPass multisampling={0}>
-            <N8AO
-              halfRes
-              color="black"
-              aoRadius={2}
-              intensity={1}
-              aoSamples={6}
-              denoiseSamples={4}
-            />
-            <SMAA />
-          </EffectComposer>
-        </Canvas>
-      </div>
+      </div> */}
     </div>
   );
 }

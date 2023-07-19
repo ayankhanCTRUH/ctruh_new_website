@@ -1,7 +1,7 @@
 .BlogsMainContainer {
   height: 100%;
   border-radius: 50px 50px 0 0;
-  transform: translateY(-13%);
+  transform: translateY(-11%);
   background-color: #fff;
   padding: 5%;
   padding-bottom: 0;
@@ -32,19 +32,19 @@
   width: 35%;
 }
 .blogsDesc h1 {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 400;
   color: #030303;
   margin-top: 0;
 }
 .blogsDesc p {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 30px;
-  font-weight: 200;
+  font-weight: 300;
   color: #5b606c;
 }
 .AvatarimgContainer img {
-  width: 60px;
+  width: 50px;
   object-fit: contain;
 }
 .AvatarimgContainer {
@@ -94,7 +94,7 @@
   position: relative;
 }
 .blogsCard img {
-  width: 250px;
+  width: 220px;
 }
 .blogsCardImgContainer:hover img {
   transition: transform 0.4s ease-in-out;
@@ -112,15 +112,15 @@
   margin: 20px 0;
 }
 .blogsCardDescContaier h1 {
-  font-size: 27px;
+  font-size: 20px;
   font-weight: 400;
   color: #030303;
   margin-top: 0;
 }
 
 .blogsCardDescContaier p {
-  font-size: 16px;
-  line-height: 30px;
+  font-size: 15px;
+  line-height: 28px;
   font-weight: 200;
   color: #5b606c;
 }
@@ -160,4 +160,29 @@
   background-color: rgba(113, 92, 246, 0.367);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+@media screen and (max-width: 850px) {
+  .BlogsMainContainer {
+    transform: translateY(-4%);
+  }
+  .BlogsActive {
+    flex-direction: column;
+    align-items: center;
+  }
+  .imgContainer:hover img {
+    transition: transform 0.4s ease-in-out;
+    transform: scale(1.01);
+  }
+  .imgContainer img {
+    width: 450px;
+    border-radius: 20px;
+  }
+  .blogsDesc {
+    width: 100%;
+  }
+  .blogsCardContainer {
+    flex-direction: column;
+    gap: 60px;
+  }
 }

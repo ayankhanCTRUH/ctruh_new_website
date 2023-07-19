@@ -13,16 +13,16 @@
   margin: 20px 30px;
 }
 .bannerHeaderActive {
-  background: rgba(150, 0, 255, 0.4);
-  backdrop-filter: blur(6.5px);
-  -webkit-backdrop-filter: blur(6.5px);
-  border-radius: 1in;
-  color: #fff;
-  border: 2px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(17px) saturate(180%);
+  -webkit-backdrop-filter: blur(17px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.516);
+  border-radius: 150px;
+  border: 2px solid #9500ff28;
+  color: #000;
 }
 
 .headerLeft {
-  font-size: 27px;
+  font-size: 20px;
   font-weight: 500;
   text-decoration: none;
   color: inherit;
@@ -37,7 +37,7 @@
   align-items: center;
   justify-content: center;
   flex: 0.93;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   gap: 4%;
   color: inherit;
@@ -51,8 +51,52 @@
   color: inherit;
 }
 .headerContent:hover {
-  border: 2px solid #ffffff;
+  border: 2px solid #000;
 }
 .bannerHeaderBlack {
   color: #000;
+}
+
+.mobileNav {
+  display: none;
+}
+@media screen and (max-width: 850px) {
+  .bannerHeader,
+  .bannerHeaderActive,
+  .bannerHeaderBlack {
+    width: 85%;
+  }
+  .headerMiddle,
+  .headerRight {
+    display: none;
+  }
+  .mobileNav {
+    display: block;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .mobileNavContainer {
+    width: 200px;
+    height: 400px;
+    position: absolute;
+    transform: translate(0, 56%);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 20px;
+    backdrop-filter: blur(17px) saturate(180%);
+    -webkit-backdrop-filter: blur(17px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.714);
+    border-radius: 15px;
+    border: 2px solid #9500ff28;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+  .mobileNavContainer a {
+    display: block;
+    color: #000;
+    font-size: 20px;
+  }
 }

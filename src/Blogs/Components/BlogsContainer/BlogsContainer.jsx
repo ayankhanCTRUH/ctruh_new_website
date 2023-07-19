@@ -8,7 +8,6 @@ function BlogsContainer() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  console.log(ref, isInView);
   return (
     <div className={style.BlogsMainContainer}>
       <Link to={`/blogs/${blogsData[0]?.url}`} className={style.BlogsActive}>

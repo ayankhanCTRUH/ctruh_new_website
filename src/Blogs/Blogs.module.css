@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   gap: 5%;
 }
 .bannerLeft video {
@@ -26,7 +27,7 @@
   right: 10%;
 }
 .bannerRight h1 {
-  font-size: 50px;
+  font-size: 37px;
   font-weight: 500;
 }
 .bannerRight p {
@@ -49,4 +50,14 @@
   padding: 20px 40px;
   border-radius: 150px;
   cursor: pointer;
+}
+@media screen and (max-width: 850px) {
+  .bannerLeft {
+    display: none;
+  }
+  .bannerRight {
+    width: 80%;
+    right: 0;
+    position: relative;
+  }
 }
