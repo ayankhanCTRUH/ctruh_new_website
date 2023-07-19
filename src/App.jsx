@@ -6,9 +6,7 @@ import { Suspense } from "react";
 import Footer from "./LandingPage/2dElements/Footer/Footer";
 import Header from "./LandingPage/2dElements/Header/Header";
 import Blogs from "./Blogs/Blogs";
-import { useState } from "react";
-import { useEffect } from "react";
-import { motion } from "framer-motion";
+import BottomSection from "./components/BottomSection/BottomSection";
 import ContactUs from "./ContactUs/ContactUs";
 import BlogsPage from "./Blogs/Components/BlogsPage/BlogsPage";
 import Applications from "./Applications/Applications";
@@ -75,6 +73,7 @@ function App() {
             </Route>
           ))}
         </Routes>
+        <BottomSection />
         <Footer />
       </Suspense>
       {/* <motion.div

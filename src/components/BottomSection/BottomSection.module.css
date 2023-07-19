@@ -1,0 +1,38 @@
+.sectionMainContainer {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bottomSectionInner {
+  background-color: #000;
+  height: 80%;
+  width: 100%;
+  margin: 0 5%;
+  border-radius: 0.5in;
+  display: flex;
+  position: relative;
+}
+.leftPart {
+  width: 35%;
+  height: 100%;
+  position: absolute;
+  color: #fff;
+  margin: 5%;
+}
+.leftPart h1 {
+  font-size: 45px;
+  font-weight: 400;
+}
+.leftPart p {
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.602);
+}
+.rightPart {
+  width: 100%;
+  height: 100%;
+}
+.rightPart canvas {
+  border-radius: 0.5in;
+}

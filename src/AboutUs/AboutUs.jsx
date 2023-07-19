@@ -9,7 +9,7 @@ function AboutUs() {
     <>
       <SectionOne />
       <SectionTwo />
-      <SectionThree />
+      {/* <SectionThree /> */}
     </>
   );
 }

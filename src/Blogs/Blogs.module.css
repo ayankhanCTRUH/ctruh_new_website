@@ -8,23 +8,24 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  gap: 5%;
+  gap: 7%;
 }
 .bannerLeft video {
   width: 100%;
 }
 .bannerLeft {
   width: 50%;
-  margin-bottom: 5%;
   position: absolute;
   left: 0;
+  height: 100%;
+  margin-top: -10%;
 }
 .bannerRight {
   color: #fff;
   width: 50%;
   margin-bottom: 5%;
   position: absolute;
-  right: 10%;
+  right: 5%;
 }
 .bannerRight h1 {
   font-size: 37px;
@@ -51,6 +52,49 @@
   border-radius: 150px;
   cursor: pointer;
 }
+.buttonCtn {
+  position: relative;
+}
+
+input[type="email"] {
+  display: inline-block;
+  width: 100%;
+  padding: 18px 36px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  height: 70px;
+  margin-top: 18px;
+  border-radius: 1in;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(150, 0, 255, 0.75);
+  border-radius: 1in;
+  border: 1px solid rgba(209, 213, 219, 0.669);
+}
+input,
+input::-webkit-input-placeholder {
+  font-size: 16px;
+  line-height: 3;
+  color: rgba(209, 213, 219, 0.827);
+}
+
+.bt {
+  margin-left: -150px;
+  font-size: 16px;
+  display: inline-block;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 1in;
+  position: absolute;
+  margin-top: 24px;
+  /* Only necessary for .btn */
+  border: none;
+  cursor: pointer;
+  background-color: #d79ffe;
+  color: #fff;
+  border-radius: 50px;
+}
+
 @media screen and (max-width: 850px) {
   .bannerLeft {
     display: none;

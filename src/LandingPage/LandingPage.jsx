@@ -29,7 +29,7 @@ function LandingPage() {
       <SectionOne />
       <SectionThree />
       <SectionFour />
-      <Slider />
+      {/* <Slider /> */}
     </>
   );
 }

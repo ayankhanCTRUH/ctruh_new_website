@@ -46,11 +46,11 @@ function SectionFour() {
   ];
   return (
     <div className={style.sectionFourContainer}>
-      <div className={style.sectionFourHeader}>
+      {/* <div className={style.sectionFourHeader}>
         <div>HOME</div>
         <div className={style.offerHeading}>WHAT WE OFFER</div>
         <div>BENIFITS</div>
-      </div>
+      </div> */}
       <div className={style.featureContainer}>
         <img src={hover?.img ? hover?.img : "./squigly-line.png"} alt="" />
         {cardsData.map((data) => (
