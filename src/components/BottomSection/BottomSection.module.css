@@ -26,7 +26,7 @@
   font-weight: 400;
 }
 .leftPart p {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.602);
 }
@@ -36,6 +36,29 @@
 }
 .rightPart canvas {
   border-radius: 0.5in;
+}
+.buttonsContainer {
+  display: flex;
+  gap: 20px;
+  pointer-events: all;
+  margin-top: 10%;
+}
+.buttonsContainer button {
+  border: none;
+  padding: 5px 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.buttonsContainer button:first-child {
+  background-color: #9600ff;
+  border: 2px solid #9600ff;
+  color: #fff;
+}
+.buttonsContainer button:last-child {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
 }
 @media screen and (max-width: 850px) {
   .sectionMainContainer {

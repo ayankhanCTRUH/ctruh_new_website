@@ -68,6 +68,9 @@ function BottomSection() {
             provident fugit, corporis odit corrupti dolore a vitae dignissimos
             ea. Eligendi!
           </p>
+          <div className={style.buttonsContainer}>
+            <button>Log in</button> <button>Sign In</button>
+          </div>
         </div>
       </div>
     </div>
