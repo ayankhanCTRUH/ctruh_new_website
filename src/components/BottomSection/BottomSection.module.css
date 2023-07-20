@@ -19,6 +19,7 @@
   position: absolute;
   color: #fff;
   margin: 5%;
+  pointer-events: none;
 }
 .leftPart h1 {
   font-size: 45px;
@@ -35,4 +36,19 @@
 }
 .rightPart canvas {
   border-radius: 0.5in;
+}
+@media screen and (max-width: 850px) {
+  .sectionMainContainer {
+    height: 100vh;
+  }
+  .leftPart {
+    width: 100%;
+  }
+  .leftPart h1 {
+    font-size: 28px;
+  }
+  .leftPart p {
+    width: 92%;
+    font-size: 16px;
+  }
 }

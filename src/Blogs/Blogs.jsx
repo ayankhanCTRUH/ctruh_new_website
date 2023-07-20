@@ -17,24 +17,26 @@ function Blogs() {
     <div className={style.blogsMainContainer}>
       <div className={style.blogsBanner}>
         <div className={style.bannerLeft}>
-          <Canvas>
-            <Stage environment={"city"}>
-              <PresentationControls
-                config={{ mass: 2, tension: 500 }}
-                snap={{ mass: 4, tension: 1500 }}
-                rotation={[0, 0.3, 0]}
-                polar={[-Math.PI / 3, Math.PI / 3]}
-                azimuth={[-Math.PI / 1.4, Math.PI / 2]}
-              >
-                <primitive
-                  object={scene}
-                  scale={0.02}
-                  // rotation={[0.2, -0.9, 0]}
-                />
-              </PresentationControls>
-              {/* <Environment files={"./brown_photostudio_02_1k.hdr"} /> */}
-            </Stage>
-          </Canvas>
+          <Suspense fallback={null}>
+            <Canvas>
+              <Stage environment={""}>
+                <PresentationControls
+                  config={{ mass: 2, tension: 500 }}
+                  snap={{ mass: 4, tension: 1500 }}
+                  rotation={[0, 0.3, 0]}
+                  polar={[-Math.PI / 3, Math.PI / 3]}
+                  azimuth={[-Math.PI / 1.4, Math.PI / 2]}
+                >
+                  <primitive
+                    object={scene}
+                    scale={0.02}
+                    // rotation={[0.2, -0.9, 0]}
+                  />
+                </PresentationControls>
+                <Environment files={"./spree_bank_1k.hdr"} blur={10} />
+              </Stage>
+            </Canvas>
+          </Suspense>
 
           {/* <motion.video
             initial={{ y: 20, opacity: 0 }}

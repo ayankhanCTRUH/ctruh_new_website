@@ -61,3 +61,22 @@
   align-items: center;
   justify-content: center;
 }
+
+@media screen and (max-width: 850px) {
+  .bannerLeft {
+    width: 100%;
+    margin-bottom: 30%;
+  }
+  .bannerLeft > section > div > span {
+    text-align: left;
+    font-size: 35px;
+  }
+  .bannerLeft p {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .bannerContainer {
+    padding: 10% 5%;
+  }
+}

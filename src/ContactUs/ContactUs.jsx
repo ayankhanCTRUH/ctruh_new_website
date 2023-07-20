@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import style from "./ContactUs.module.css";
 import * as THREE from "three";
 import { motion } from "framer-motion";
@@ -11,34 +11,38 @@ import {
 import { Canvas } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Center, OrbitControls, useGLTF } from "@react-three/drei";
+import { Stage, useGLTF } from "@react-three/drei";
 import { easing } from "maath";
 
 function Suzanne(props) {
-  const mesh = useRef();
-  const { nodes } = useGLTF("./TzAg-suzanne.glb");
+  const { scene } = useGLTF("./explode (1).glb");
   const [dummy] = useState(() => new THREE.Object3D());
   useFrame((state, dt) => {
     dummy.lookAt(state.pointer.x, state.pointer.y, 1);
-    easing.dampQ(mesh.current.quaternion, dummy.quaternion, 0.15, dt);
+    easing.dampQ(scene.quaternion, dummy.quaternion, 0.15, dt);
   });
 
   return (
-    <mesh
-      ref={mesh}
-      geometry={nodes.Suzanne.geometry}
-      {...props}
-      scale={0.6}
-      position={[2, 0, 0]}
-    >
-      <meshNormalMaterial />
-    </mesh>
+    <Suspense>
+      <group position={[0.8, 0, 0]}>
+        <Stage preset={"upfront"} position={[0, 0.7, 0]}>
+          <primitive object={scene} scale={0.004} />
+        </Stage>
+      </group>
+    </Suspense>
+    // <mesh
+    //   ref={mesh}
+    //   geometry={nodes.Suzanne.geometry}
+    //   {...props}
+    //   scale={0.6}
+    //   position={[2, 0, 0]}
+    // >
+    //   <meshNormalMaterial />
+    // </mesh>
   );
 }
 
 function ContactUs() {
-  const mainGlb = useGLTF("./0 (7).glb");
-
   return (
     <div className={style.contactMainContainer}>
       <motion.div
@@ -143,12 +147,11 @@ function ContactUs() {
             </g>
           </svg>
         </div>
-        {/* <img src="brainstorm.png" alt="" /> */}
       </motion.div>
 
       <Canvas className={style.canvasMain} camera={{ position: [0, 0.1, 3] }}>
-        <ambientLight />
-        <directionalLight position={[10, 10, 10]} />
+        {/* <ambientLight />
+        <directionalLight position={[10, 10, 10]} /> */}
         <Suzanne />
       </Canvas>
     </div>

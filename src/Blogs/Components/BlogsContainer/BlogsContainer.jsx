@@ -11,14 +11,9 @@ function BlogsContainer() {
   return (
     <div className={style.BlogsMainContainer}>
       <Link to={`/blogs/${blogsData[0]?.url}`} className={style.BlogsActive}>
-        <motion.div
-          initial={{ x: -20, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-          className={style.imgContainer}
-        >
+        <div className={style.imgContainer}>
           <img src={blogsData[0].thumbnail} alt="" />
-        </motion.div>
+        </div>
         <div className={style.blogsDesc}>
           <motion.div
             initial={{ y: 50, opacity: 0 }}

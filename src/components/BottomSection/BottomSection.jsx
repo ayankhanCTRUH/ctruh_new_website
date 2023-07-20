@@ -6,6 +6,7 @@ import { Physics, usePlane } from "@react-three/cannon";
 import { Cursor } from "../helpers/Drag";
 import { Guy } from "../components/Guy";
 import { Mug, Chair, Table, Lamp } from "../components/Furniture";
+import { useThree } from "@react-three/fiber";
 
 function BottomSection() {
   return (
@@ -15,7 +16,21 @@ function BottomSection() {
           <Canvas
             dpr={[1, 2]}
             shadows
-            camera={{ position: [-40, 10, 10], fov: 25, near: 1, far: 100 }}
+            camera={
+              window.innerWidth < 800
+                ? {
+                    position: [-40, 10, 40],
+                    fov: 25,
+                    near: 1,
+                    far: 100,
+                  }
+                : {
+                    position: [-40, 10, 10],
+                    fov: 25,
+                    near: 1,
+                    far: 100,
+                  }
+            }
           >
             <color attach="background" args={["#000"]} />
             <fog attach="fog" args={["#000", 60, 90]} />
@@ -25,7 +40,10 @@ function BottomSection() {
               color="#9600ff"
               intensity={3}
             />
-            <group position={[10, -3, 10]} rotation={[0, -8, 0]}>
+            <group
+              position={window.innerWidth < 800 ? [0, 0, 0] : [10, -3, 10]}
+              rotation={[0, -8, 0]}
+            >
               <Physics
                 allowSleep={false}
                 iterations={15}

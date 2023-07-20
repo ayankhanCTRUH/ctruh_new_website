@@ -86,8 +86,9 @@
 .canvasMain {
   /* background-color: red; */
   position: absolute !important;
-  width: 100%;
+  width: 50% !important;
   height: 100%;
+  right: 0;
 }
 .rotating {
   animation: rotating 12s linear infinite;

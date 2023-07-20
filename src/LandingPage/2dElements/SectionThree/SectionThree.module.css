@@ -1,5 +1,5 @@
 .sectionThreeContainer {
-  height: 100vh;
+  height: 100%;
   background-color: #9600ff;
   padding: 60px;
   position: relative;
@@ -70,4 +70,31 @@
   border-style: solid;
   border-image: linear-gradient(to bottom, #7200c3b0, rgba(0, 0, 0, 0)) 1 100%;
   transition: 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 850px) {
+  .cardsContainer {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  .sectionThreeContainer {
+    padding: 60px 20px;
+  }
+  .card {
+    width: 80%;
+  }
+  .img2 {
+    top: 26%;
+    left: 10%;
+    rotate: 45deg;
+    width: 240px;
+  }
+  .sectionThreeHeading {
+    width: 100%;
+  }
+  .sectionThreeHeading section > p {
+    font-size: 26px !important;
+  }
 }
