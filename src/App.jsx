@@ -10,6 +10,7 @@ import BottomSection from "./components/BottomSection/BottomSection";
 import ContactUs from "./ContactUs/ContactUs";
 import BlogsPage from "./Blogs/Components/BlogsPage/BlogsPage";
 import Applications from "./Applications/Applications";
+import Loader from "./components/Loader/Loader";
 
 function App() {
   const routeConfig = [
@@ -53,7 +54,7 @@ function App() {
   // };
   return (
     <>
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loader />}>
         <Header />
         <Routes>
           {routeConfig.map((route, index) => (
