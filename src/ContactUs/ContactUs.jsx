@@ -14,7 +14,7 @@ import { useFrame } from "@react-three/fiber";
 import { Stage, useGLTF } from "@react-three/drei";
 import { easing } from "maath";
 
-function Suzanne(props) {
+function Suzanne() {
   const { scene } = useGLTF("./explode (1).glb");
   const [dummy] = useState(() => new THREE.Object3D());
   useFrame((state, dt) => {

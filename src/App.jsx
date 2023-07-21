@@ -28,30 +28,6 @@ function App() {
     },
   ];
 
-  // const [mousePosition, setMousePosition] = useState({
-  //   x: 0,
-  //   y: 0,
-  // });
-
-  // useEffect(() => {
-  //   const mouseMove = (e) => {
-  //     setMousePosition({
-  //       x: e.clientX,
-  //       y: e.clientY,
-  //     });
-  //   };
-  //   window.addEventListener("mousemove", mouseMove);
-  //   return () => {
-  //     window.removeEventListener("mousemove");
-  //   };
-  // }, []);
-  // console.log(mousePosition);
-  // const varients = {
-  //   default: {
-  //     x: mousePosition.x - 16,
-  //     y: mousePosition.y - 16,
-  //   },
-  // };
   return (
     <>
       <Suspense fallback={<Loader />}>
@@ -77,11 +53,6 @@ function App() {
         <BottomSection />
         <Footer />
       </Suspense>
-      {/* <motion.div
-        className={style.cursor}
-        animate="default"
-        variants={varients}
-      ></motion.div> */}
     </>
   );
 }
