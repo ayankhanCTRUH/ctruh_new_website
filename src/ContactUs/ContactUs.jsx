@@ -13,6 +13,73 @@ import { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Stage, useGLTF } from "@react-three/drei";
 import { easing } from "maath";
+import { Helmet } from "react-helmet";
+
+const ORG_SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Ctruh",
+  image: "https://www.ctruh.com/src/assets/Ctruh_Logo.png",
+  "@id": "",
+  url: "https://www.ctruh.com/",
+  telephone: "+91 7619418898",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Obeya Gusto, 5th Main Rd, Sector 6, HSR Layout",
+    addressLocality: "Bengaluru",
+    postalCode: "560102",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 12.9158253,
+    longitude: 77.6325233,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Wednesday",
+      "Monday",
+      "Tuesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ],
+    opens: "10:00",
+    closes: "21:00",
+  },
+});
+const ORG_SCHEMA1 = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Ctruh",
+  url: "https://www.ctruh.com/",
+  logo: "https://www.ctruh.com/src/assets/Ctruh_Logo.png",
+  sameAs: [
+    "https://www.instagram.com/hello_ctruh/",
+    "https://www.facebook.com/people/Ctruh/100090491642974/",
+    "https://twitter.com/HelloCtruh",
+    "https://www.linkedin.com/company/ctruh/",
+  ],
+});
+const ORG_SCHEMA2 = JSON.stringify({
+  "@context": "https://schema.org/",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.ctruh.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Contact us",
+      item: "https://www.ctruh.com/Contact-us",
+    },
+  ],
+});
 
 function Suzanne(props) {
   const { scene } = useGLTF("./explode (1).glb");
@@ -45,6 +112,31 @@ function Suzanne(props) {
 function ContactUs() {
   return (
     <div className={style.contactMainContainer}>
+      <Helmet>
+        <title>Contact-us-Ctruh</title>
+        <meta
+          name="description"
+          content="Contact us for your questions or concerns on Phone and Email."
+        />
+        <link href="https://www.ctruh.com/Contact-us-Ctruh" rel="canonical" />
+        <link
+          rel="alternate"
+          href="https://www.ctruh.com/Contact-us-Ctruh"
+          hreflang="en-in"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: ORG_SCHEMA }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: ORG_SCHEMA1 }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: ORG_SCHEMA2 }}
+        />
+      </Helmet>
       <motion.div
         initial={{ x: -40, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}

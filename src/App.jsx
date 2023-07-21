@@ -15,9 +15,9 @@ import Loader from "./components/Loader/Loader";
 function App() {
   const routeConfig = [
     { path: "/", element: <LandingPage /> },
-    { path: "/about_us", element: <AboutUs /> },
+    { path: "/aboutus", element: <AboutUs /> },
     { path: "/blogs", element: <Blogs /> },
-    { path: "/contact_us", element: <ContactUs /> },
+    { path: "/Contact-us", element: <ContactUs /> },
     {
       path: "/blogs/:blogTitle",
       element: <BlogsPage />,
