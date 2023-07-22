@@ -9,9 +9,9 @@ function Banner() {
       <div className={style.mainBanner}>
         <div className={style.bannerLeft}>
           <AnimatedText
-            title={"We Are Ctruh Reality"}
+            title={"Engineering a metaverse moonshot"}
             style={{
-              fontSize: 70,
+              fontSize: 62,
               fontWeight: 600,
               margin: 0,
               textAlign: "center",
@@ -23,9 +23,8 @@ function Banner() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, ease: "easeInOut" }}
           >
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet
-            corporis, quis nobis mollitia pariatur deserunt animi placeat odio
-            dolorum tempora expedita aliquid error alias
+            Meet Ctruh, A revolutionary, no-code, web-based 3D editor that turns
+            ideas into stunning AR and VR experiences in minutes.
           </motion.p>
           <motion.div
             initial={{ y: 100, opacity: 0 }}
@@ -33,8 +32,7 @@ function Banner() {
             transition={{ duration: 1.5, ease: "easeInOut" }}
             className={style.bannerButton}
           >
-            <button>Contact Us</button>
-            <button>See Our Service</button>
+            <button>Join Now</button>
           </motion.div>
         </div>
         {/* <div className={style.bannerRight}></div> */}

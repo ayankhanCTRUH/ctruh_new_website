@@ -9,7 +9,7 @@ import Blogs from "./Blogs/Blogs";
 import BottomSection from "./components/BottomSection/BottomSection";
 import ContactUs from "./ContactUs/ContactUs";
 import BlogsPage from "./Blogs/Components/BlogsPage/BlogsPage";
-import Applications from "./Applications/Applications";
+// import Applications from "./Applications/Applications";
 import Loader from "./components/Loader/Loader";
 
 function App() {
@@ -22,10 +22,10 @@ function App() {
       path: "/blogs/:blogTitle",
       element: <BlogsPage />,
     },
-    {
-      path: "/application",
-      element: <Applications />,
-    },
+    // {
+    //   path: "/application",
+    //   element: <Applications />,
+    // },
   ];
 
   return (

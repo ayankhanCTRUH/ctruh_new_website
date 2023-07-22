@@ -18,16 +18,14 @@ const Cards = () => {
             transition={{ duration: 1, ease: "easeInOut" }}
             className={style.card}
           >
-            <h1>Copywriting</h1>
+            <h1>Real Estate</h1>
             <h5>
               We entice with words that steal one’s attention Let us WOO your
               customers!
             </h5>
             <ul>
-              <li>Copywriting</li>
-              <li>Media Content Marketing</li>
-              <li>Content Reaserch</li>
-              <li>Storytelling</li>
+              <li>Offer immersive VR walkthroughs</li>
+              <li>Place & visualise in AR</li>
             </ul>
           </motion.div>
           <motion.div
@@ -36,16 +34,14 @@ const Cards = () => {
             transition={{ duration: 1.2, ease: "easeInOut" }}
             className={style.card}
           >
-            <h1>Digital Design</h1>
+            <h1>Direct-to-Consumer Brands</h1>
             <h5>
               We entice with words that steal one’s attention Let us WOO your
               customers!
             </h5>
             <ul>
-              <li>Copywriting</li>
-              <li>Media Content Marketing</li>
-              <li>Content Reaserch</li>
-              <li>Storytelling</li>
+              <li>Build your own virtual store </li>
+              <li>Showcase your products in 3D</li>
             </ul>
           </motion.div>
           <motion.div
@@ -54,16 +50,14 @@ const Cards = () => {
             transition={{ duration: 1.2, ease: "easeInOut" }}
             className={style.card}
           >
-            <h1>Development</h1>
+            <h1>Automobile</h1>
             <h5>
               We entice with words that steal one’s attention Let us WOO your
               customers!
             </h5>
             <ul>
-              <li>Copywriting</li>
-              <li>Media Content Marketing</li>
-              <li>Content Reaserch</li>
-              <li>Storytelling</li>
+              <li>AR usermanuals</li>
+              <li>Immersive automobile experiences</li>
             </ul>
           </motion.div>
         </>
@@ -102,9 +96,7 @@ function SectionThree() {
               borderBottom: "5px solid #ff9600",
               display: "inline",
             }}
-            desc={
-              "We assist brands, bring forth ambitious ideas, all while keeping it simple, aesthetic and practical."
-            }
+            desc={"Tailored Solutions Across Industries"}
             descStyle={{ fontSize: 30, fontWeight: 500, color: "#fff" }}
           />
         </div>

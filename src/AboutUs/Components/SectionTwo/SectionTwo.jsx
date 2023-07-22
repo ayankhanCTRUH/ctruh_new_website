@@ -29,11 +29,16 @@ function SectionTwo() {
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               }}
             >
-              These are the values that unite the three of us. At our core,
-              we're a team of passionate designers who share a deep commitment
-              to our craft. Our journey began with a shared dream of creating
-              designs that truly resonated with people, and we knew that could
-              only be achieved through hard work and uncompromising quality.
+              Presenting Ctruh, a no-code platform that makes it dead-simple for
+              anyone to design and create 3D experiences without any prior
+              technical knowledge. We believe that creativity should be
+              accessible to everyone, and our platform removes the barriers of
+              entry that have traditionally kept people from entering the 3D
+              world. With Ctruh, you don't need to know how to code or have a
+              background in 3D design. All you need is an idea and the
+              willingness to bring it to life. Our platform is intuitive and
+              user-friendly, making it easy for anyone to create and publish
+              their own 3D experiences.
             </motion.p>
             <motion.p
               ref={ref}
@@ -43,11 +48,16 @@ function SectionTwo() {
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               }}
             >
-              Today, we're proud to be known as a trusted partner for businesses
-              and individuals looking for solutions that are both beautiful and
-              functional. We believe that the work we do has the power to change
-              and shape this wonderful community. And we're grateful for the
-              opportunity to do what we love every day.
+              3D technology is driving innovation and revolutionising multiple
+              industries, including gaming, e-commerce, education, and
+              entertainment amongst others. With the growing demand for 3D
+              content, the market for 3D design and creation is expected to
+              reach billions of dollars in the coming years. However, despite
+              the enormous potential, 3D design and creation can be a complex
+              and challenging process, requiring specialised skills and
+              expertise. This presents a significant barrier to entry for many
+              individuals and businesses who wish to participate in the 3D
+              world.
             </motion.p>
           </div>
         </div>
@@ -63,10 +73,11 @@ function SectionTwo() {
           <div>
             <h1>Our Vision</h1>
             <p>
-              Our commitment to customer service and custom code sets us apart
-              from other Webflow agencies. Every project we take on will be
-              delivered with an exceptional design system while adhering to the
-              client's branding guidelines.
+              Our vision is to empower everyone to unleash their creativity and
+              bring their ideas to life in the 3D world. We believe that the
+              future of design and creativity lies in the Metaverse, and we are
+              dedicated to making this world accessible to everyone, regardless
+              of their technical background.
             </p>
           </div>
           <video

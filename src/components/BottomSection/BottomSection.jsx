@@ -63,13 +63,11 @@ function BottomSection() {
         <div className={style.leftPart}>
           <h1>Ready to use Ctruh?</h1>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore
-            impedit doloremque ad modi eaque tempora atque id amet, sequi
-            provident fugit, corporis odit corrupti dolore a vitae dignissimos
-            ea. Eligendi!
+            Immerse yourself in the future of 3D design. Begin your journey with
+            Ctruh today. Sign up now!
           </p>
           <div className={style.buttonsContainer}>
-            <button>Log in</button> <button>Sign In</button>
+            <button>Sign up</button>
           </div>
         </div>
       </div>

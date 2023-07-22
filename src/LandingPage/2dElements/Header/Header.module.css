@@ -9,8 +9,9 @@
   color: #fff;
   padding: 10px 25px;
   pointer-events: all !important;
-  width: 92%;
+  width: 93%;
   margin: 20px 30px;
+  border: 2px solid transparent;
 }
 .bannerHeaderActive {
   backdrop-filter: blur(17px) saturate(180%);
@@ -31,15 +32,67 @@
   font-size: 20px;
   font-weight: 500;
   color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
+.headerActive {
+  font-size: 20px;
+  font-weight: 500;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.headerRight button {
+  border: none;
+  padding: 5px 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.headerActive button {
+  border: none;
+  padding: 5px 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.headerRight button:first-child {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.headerRight button:last-child {
+  background-color: #030303;
+  border: 2px solid #030303;
+  color: #fff;
+}
+
+.headerActive button:first-child {
+  background-color: transparent;
+  border: 2px solid #030303;
+  color: #030303;
+}
+
+.headerActive button:last-child {
+  background-color: #030303;
+  border: 2px solid #030303;
+  color: #fff;
+}
+
 .headerMiddle {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 0.93;
+  flex: 1;
   font-size: 18px;
   font-weight: 400;
   gap: 4%;
+  padding-left: 10%;
   color: inherit;
 }
 .headerContent {
@@ -67,7 +120,8 @@
     width: 85%;
   }
   .headerMiddle,
-  .headerRight {
+  .headerRight,
+  .headerActive {
     display: none;
   }
   .mobileNav {

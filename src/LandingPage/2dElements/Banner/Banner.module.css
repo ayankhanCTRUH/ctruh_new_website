@@ -3,8 +3,9 @@
   /* background-color: #000080; */
   /* background: linear-gradient(#0219b8, #fff); */
   background: transparent;
-  padding: 20px 50px;
+  padding: 20px 0;
   position: absolute;
+  width: 100%;
   top: 0;
 }
 
@@ -18,7 +19,7 @@
   flex-direction: column;
 }
 .bannerLeft {
-  width: 68%;
+  width: 60%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -47,14 +48,7 @@
   color: #fff;
   cursor: pointer;
 }
-.bannerButton button:last-child {
-  font-size: 18px;
-  padding: 8px 20px;
-  background-color: transparent;
-  border: 2px solid #fff;
-  border-radius: 1in;
-  color: #fff;
-}
+
 .bannerRight {
   width: 50%;
   display: flex;

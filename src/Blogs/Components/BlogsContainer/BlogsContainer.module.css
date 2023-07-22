@@ -77,12 +77,13 @@
 
 .blogsCardContainer {
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   margin-top: 40px;
   gap: 3%;
 }
 .blogsCard {
-  flex: 0 1 100%;
+  min-width: 300px;
+  max-width: 430px;
   text-decoration: none;
 }
 .blogsCardImgContainer {

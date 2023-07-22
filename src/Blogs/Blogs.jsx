@@ -10,9 +10,11 @@ import {
   Environment,
   Stage,
 } from "@react-three/drei";
+import { useState } from "react";
 
 function Blogs() {
   const { scene } = useGLTF("./0d331180-0c24-11ed-9842-0d5759ed8de0.glb");
+  const [blogsClicked, setBlogsClicked] = useState();
   return (
     <div className={style.blogsMainContainer}>
       <div className={style.blogsBanner}>
@@ -27,11 +29,7 @@ function Blogs() {
                   polar={[-Math.PI / 3, Math.PI / 3]}
                   azimuth={[-Math.PI / 1.4, Math.PI / 2]}
                 >
-                  <primitive
-                    object={scene}
-                    scale={0.02}
-                    // rotation={[0.2, -0.9, 0]}
-                  />
+                  <primitive object={scene} scale={0.02} />
                 </PresentationControls>
                 <Environment files={"./spree_bank_1k.hdr"} blur={10} />
               </Stage>
@@ -82,10 +80,12 @@ function Blogs() {
         animate={{ y: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
       >
-        <BlogsContainer />
+        <BlogsContainer clicked={blogsClicked} />
       </motion.div>
       <div className={style.seeAllContainer}>
-        <button>See All Article</button>
+        <button onClick={() => setBlogsClicked(!blogsClicked)}>
+          See All Article
+        </button>
       </div>
     </div>
   );

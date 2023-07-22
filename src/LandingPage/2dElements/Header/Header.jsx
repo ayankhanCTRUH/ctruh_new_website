@@ -76,11 +76,16 @@ function Header() {
         >
           Contact
         </Link>
-        <Link to={"/application"} className={style.headerContent}>
+        {/* <Link to={"/application"} className={style.headerContent}>
           Applications
-        </Link>
+        </Link> */}
       </div>
-      <div className={style.headerRight}>EN</div>
+      <div
+        className={scrollPosition > 82 ? style.headerActive : style.headerRight}
+      >
+        <button>Login</button>
+        <button>Sign Up</button>
+      </div>
 
       <div className={style.mobileNav}>
         {menueClicked ? (
@@ -111,9 +116,6 @@ function Header() {
               to={"/contact_us"}
             >
               Contact
-            </Link>
-            <Link to={"/application"} className={style.headerContent}>
-              Applications
             </Link>
           </div>
         )}

@@ -19,7 +19,7 @@ function SectionOne() {
             textAlign: "center",
           }}
           desc={
-            "3D opens a new door for creativity. A solid set of features that will.help you create your best 3d designs."
+            "Discover Ctruh's suite of powerful features designed to empower your 3D creativity. Explore hotspots to highlight intricate details, utilize spatial audio for immersive soundscapes, and enjoy the simplicity of predefined templates and textures to build realistic and engaging 3D environments."
           }
         />
       </div>

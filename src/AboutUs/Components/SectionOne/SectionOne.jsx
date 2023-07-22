@@ -68,9 +68,11 @@ function SectionOne() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.4, ease: "easeInOut" }}
         >
-          By sharing our expertise and resources, we're able to help others
-          create exceptional websites. By sharing our expertise and resources,
-          we're able to help others create exceptional websites.
+          Ctruh is a groundbreaking no-code platform that simplifies 3D design,
+          empowering anyone to create immersive experiences for the evolving
+          Metaverse. Our user-friendly interface democratizes access to 3D
+          content creation, fostering innovation across Realestate, Automobile,
+          and beyond
         </motion.p>
       </div>
       {/* <img src="ring-abstract-shape.png" alt="" className={style.img1} />
