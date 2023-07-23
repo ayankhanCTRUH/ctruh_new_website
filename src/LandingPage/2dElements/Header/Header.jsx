@@ -35,13 +35,23 @@ function Header() {
       };
     }
   }, []);
+  const [count, setCount] = useState(window.localStorage.getItem("count"));
+  useEffect(() => {
+    window.localStorage.setItem("count", count);
+  }, [count]);
+  const dark = () => {
+    return setCount("dark");
+  };
+  const light = () => {
+    return setCount("light");
+  };
 
   return (
     <div
       className={
         scrollPosition > 82
           ? style.bannerHeaderActive
-          : navDark === "contact"
+          : count === "dark"
           ? style.bannerHeaderBlack
           : style.bannerHeader
       }
@@ -55,29 +65,17 @@ function Header() {
       </Link>
 
       <div className={style.headerMiddle}>
-        <Link
-          onClick={() => setNavDark("")}
-          className={style.headerContent}
-          to={"/about_us"}
-        >
+        <Link onClick={light} className={style.headerContent} to={"/about_us"}>
           About
         </Link>
-        <Link
-          onClick={() => setNavDark("")}
-          className={style.headerContent}
-          to={"/blogs"}
-        >
+        <Link onClick={light} className={style.headerContent} to={"/blogs"}>
           Blogs
         </Link>
-        <Link
-          onClick={() => setNavDark("contact")}
-          className={style.headerContent}
-          to={"/contact_us"}
-        >
+        <Link onClick={dark} className={style.headerContent} to={"/contact_us"}>
           Contact
         </Link>
         <Link
-          onClick={() => setNavDark("contact")}
+          onClick={dark}
           className={`${style.headerContent} ${style.headerContentAI}`}
           to={"/ai"}
         >
@@ -85,7 +83,13 @@ function Header() {
         </Link>
       </div>
       <div
-        className={scrollPosition > 82 ? style.headerActive : style.headerRight}
+        className={
+          scrollPosition > 82
+            ? style.headerActive
+            : count === "dark"
+            ? style.headerDark
+            : style.headerRight
+        }
       >
         <button>Login</button>
         <button>Sign Up</button>
@@ -101,31 +105,23 @@ function Header() {
         {menueClicked && (
           <div className={style.mobileNavContainer}>
             <Link
-              onClick={() => setNavDark("")}
+              onClick={light}
               className={style.headerContent}
               to={"/about_us"}
             >
               About
             </Link>
-            <Link
-              onClick={() => setNavDark("")}
-              className={style.headerContent}
-              to={"/blogs"}
-            >
+            <Link onClick={light} className={style.headerContent} to={"/blogs"}>
               Blogs
             </Link>
             <Link
-              onClick={() => setNavDark("contact")}
+              onClick={light}
               className={style.headerContent}
               to={"/contact_us"}
             >
               Contact
             </Link>
-            <Link
-              onClick={() => setNavDark("contact")}
-              className={style.headerContent}
-              to={"/ai"}
-            >
+            <Link onClick={dark} className={style.headerContent} to={"/ai"}>
               AI
             </Link>
             <div className={style.loginContainer}>

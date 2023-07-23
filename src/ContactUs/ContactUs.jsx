@@ -83,7 +83,7 @@ function ContactUs() {
             </div>
           </div>
 
-          <div className={style.contactInfo}>
+          {/* <div className={style.contactInfo}>
             <h1>Pune HQ</h1>
             <p>
               Obeya Gusto, 5th Main Rd, Sector 6, HSR Layout, Bengaluru,
@@ -93,18 +93,18 @@ function ContactUs() {
               <h5>+91 7619418898</h5>
               <h5>hello@ctruh.com</h5>
             </div>
-          </div>
+          </div> */}
 
           <div className={style.contactInfo}>
             <h1>Contact our teams:</h1>
             <div className={style.emails}>
-              <h1>Co-founder</h1>
-              <p>karma.symington@multitudemedia.co.uk</p>
+              <h1>Founder's office</h1>
+              <p>fo@ctruh.com</p>
             </div>
-            <div className={style.emails}>
+            {/* <div className={style.emails}>
               <h1>Product Manager</h1>
               <p>karma.symington@multitudemedia.co.uk</p>
-            </div>
+            </div> */}
           </div>
 
           <div className={style.contactInfo}>
@@ -141,7 +141,7 @@ function ContactUs() {
                   xlinkHref="#textPath"
                   startOffset="0%"
                 >
-                  GET IN TOUCH ✦ CTRUH ✦ GET IN TOUCH ✦ CTRUH VERSE ✦
+                  GET IN TOUCH ✦ CTRUH VERSE ✦ GET IN TOUCH ✦ CTRUH VERSE ✦
                 </textPath>
               </text>
             </g>

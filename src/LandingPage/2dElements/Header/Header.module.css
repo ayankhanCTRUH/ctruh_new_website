@@ -28,7 +28,8 @@
   text-decoration: none;
   color: inherit;
 }
-.headerRight {
+.headerRight,
+.headerDark {
   font-size: 20px;
   font-weight: 500;
   color: inherit;
@@ -79,6 +80,26 @@
 }
 
 .headerActive button:last-child {
+  background-color: #030303;
+  border: 2px solid #030303;
+  color: #fff;
+}
+
+.headerDark button {
+  border: none;
+  padding: 5px 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.headerDark button:first-child {
+  background-color: transparent;
+  border: 2px solid #030303;
+  color: #030303;
+}
+
+.headerDark button:last-child {
   background-color: #030303;
   border: 2px solid #030303;
   color: #fff;
