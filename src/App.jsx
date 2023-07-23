@@ -11,6 +11,7 @@ import ContactUs from "./ContactUs/ContactUs";
 import BlogsPage from "./Blogs/Components/BlogsPage/BlogsPage";
 // import Applications from "./Applications/Applications";
 import Loader from "./components/Loader/Loader";
+import AI from "./AI/AI";
 
 function App() {
   const routeConfig = [
@@ -18,14 +19,11 @@ function App() {
     { path: "/about_us", element: <AboutUs /> },
     { path: "/blogs", element: <Blogs /> },
     { path: "/contact_us", element: <ContactUs /> },
+    { path: "/ai", element: <AI /> },
     {
       path: "/blogs/:blogTitle",
       element: <BlogsPage />,
     },
-    // {
-    //   path: "/application",
-    //   element: <Applications />,
-    // },
   ];
 
   return (

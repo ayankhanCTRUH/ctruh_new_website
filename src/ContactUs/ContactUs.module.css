@@ -14,6 +14,7 @@
   justify-content: center;
   width: 50%;
   height: 100vh;
+  position: relative;
 }
 
 .rounded_text {
@@ -86,9 +87,13 @@
 .canvasMain {
   /* background-color: red; */
   position: absolute !important;
-  width: 50% !important;
-  height: 100%;
-  right: 0;
+  width: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.canvasMain img {
+  width: 200;
 }
 .rotating {
   animation: rotating 12s linear infinite;

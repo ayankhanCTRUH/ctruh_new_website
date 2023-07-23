@@ -147,13 +147,14 @@ function ContactUs() {
             </g>
           </svg>
         </div>
+        <div className={style.canvasMain}>
+          <img width={"80%"} src="./brainstorm.png" alt="" />
+        </div>
       </motion.div>
 
-      <Canvas className={style.canvasMain} camera={{ position: [0, 0.1, 3] }}>
-        {/* <ambientLight />
-        <directionalLight position={[10, 10, 10]} /> */}
+      {/* <Canvas className={style.canvasMain} camera={{ position: [0, 0.1, 3] }}>
         <Suzanne />
-      </Canvas>
+      </Canvas> */}
     </div>
   );
 }

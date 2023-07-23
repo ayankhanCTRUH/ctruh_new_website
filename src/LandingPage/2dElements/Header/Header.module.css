@@ -113,6 +113,11 @@
 .mobileNav {
   display: none;
 }
+.headerContentAI {
+  color: orange;
+  font-weight: 600;
+  font-size: 25px;
+}
 @media screen and (max-width: 850px) {
   .bannerHeader,
   .bannerHeaderActive,

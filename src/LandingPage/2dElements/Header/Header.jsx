@@ -76,6 +76,13 @@ function Header() {
         >
           Contact
         </Link>
+        <Link
+          onClick={() => setNavDark("contact")}
+          className={`${style.headerContent} ${style.headerContentAI}`}
+          to={"/ai"}
+        >
+          AI
+        </Link>
         {/* <Link to={"/application"} className={style.headerContent}>
           Applications
         </Link> */}
@@ -116,6 +123,13 @@ function Header() {
               to={"/contact_us"}
             >
               Contact
+            </Link>
+            <Link
+              onClick={() => setNavDark("contact")}
+              className={style.headerContent}
+              to={"/ai"}
+            >
+              AI
             </Link>
           </div>
         )}

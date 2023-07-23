@@ -55,7 +55,11 @@
   border: 2px solid #9600ff;
   color: #fff;
 }
-
+.buttonsContainer button:last-child {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
 @media screen and (max-width: 850px) {
   .sectionMainContainer {
     height: 100vh;
