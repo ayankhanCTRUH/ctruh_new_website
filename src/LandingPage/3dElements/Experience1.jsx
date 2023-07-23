@@ -1,11 +1,9 @@
-import { Suspense } from "react";
-import { Center, OrbitControls, useGLTF } from "@react-three/drei";
-import { Box, Torus } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { Physics, RigidBody, CuboidCollider } from "@react-three/rapier";
-import { useState } from "react";
+
 import { ContactShadows } from "@react-three/drei";
 import { Environment, Lightformer, Preload } from "@react-three/drei";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 function Experience1() {
   const allMesh = useGLTF("./allMesh.glb");

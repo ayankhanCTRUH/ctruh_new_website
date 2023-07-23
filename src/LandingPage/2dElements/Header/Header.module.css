@@ -158,4 +158,28 @@
     color: #000;
     font-size: 20px;
   }
+  .loginContainer {
+    display: flex;
+    gap: 10px;
+  }
+  .loginContainer button {
+    border: none;
+    padding: 5px 0;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    width: 100%;
+  }
+  .loginContainer button:first-child {
+    background-color: transparent;
+    border: 2px solid #030303;
+    color: #030303;
+  }
+
+  .loginContainer button:last-child {
+    background-color: #030303;
+    border: 2px solid #030303;
+
+    color: #fff;
+  }
 }

@@ -83,9 +83,6 @@ function Header() {
         >
           AI
         </Link>
-        {/* <Link to={"/application"} className={style.headerContent}>
-          Applications
-        </Link> */}
       </div>
       <div
         className={scrollPosition > 82 ? style.headerActive : style.headerRight}
@@ -131,6 +128,10 @@ function Header() {
             >
               AI
             </Link>
+            <div className={style.loginContainer}>
+              <button>Login</button>
+              <button>Sign Up</button>
+            </div>
           </div>
         )}
       </div>
